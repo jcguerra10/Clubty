@@ -5,6 +5,6 @@ package model;
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Elemento {
+public class Elemento extends Alimento{
 
 }

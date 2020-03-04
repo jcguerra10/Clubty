@@ -7,4 +7,9 @@ package model;
  */
 public class App {
 
+    private Alimentacion alimentacion;
+    private Personal personal;
+    private Hidratacion hidratacion;
+    
+    
 }

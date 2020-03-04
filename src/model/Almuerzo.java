@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author diegoa.torres
@@ -7,4 +9,5 @@ package model;
  */
 public class Almuerzo {
 
+    private ArrayList<Elemento>elementos;
 }

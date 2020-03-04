@@ -7,4 +7,7 @@ package model;
  */
 public class Personal {
 
+    private Concentracion primerConcentracion;
+    private Suenio primerSuenio;
+    private Ejercicio primerEjercicio;
 }
