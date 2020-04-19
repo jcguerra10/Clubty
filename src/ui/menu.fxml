@@ -41,7 +41,7 @@
                               <Image url="@../../img/bienestar.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="7.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="7.0" layoutY="331.0" onMouseClicked="#hidratacion" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../img/hidratacion.png" />
                            </image>

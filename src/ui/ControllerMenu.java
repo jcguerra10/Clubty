@@ -34,5 +34,18 @@ public class ControllerMenu implements Initializable {
 		}
 
 	}
+	
+	public void hidratacion() {
+		try {
+			FXMLLoader fl = new FXMLLoader(getClass().getResource("hidratacionPre.fxml"));
+			Parent p = fl.load();
+			Stage s = new Stage();
+			s.setScene(new Scene(p));			
+			s.show();			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }
