@@ -40,17 +40,28 @@ public class Hidratacion {
             return primerAgua == null;
     }    
 
-    	public void agregarCafe(Cafe newCafe) {
+    public void agregarCafe(Cafe newCafe) {
             
-            if (esVacioC() == true) {
-                
-                    primerCafe = newCafe;
-                    
-            } else {
+        if (esVacioC() == true) {
 
-                    primerCafe.insertar(newCafe);
-                    
-            }
+                primerCafe = newCafe;
 
-	}
+        } else {
+
+                primerCafe.insertar(newCafe);
+
+        }
+
+    }
+    
+    public void agregarAgua(Agua newAgua){
+        
+        if (esVacioA() == true) {
+            
+            primerAgua = newAgua;
+        }else{
+            
+            primerAgua.insertar(newAgua);
+        }
+    }
 }

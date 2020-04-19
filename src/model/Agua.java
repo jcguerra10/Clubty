@@ -46,7 +46,28 @@ public class Agua extends Liquido implements Comparable<Agua>{
     }
     
     
-    
+    public  void insertar(Agua c){
+        
+        if (compareTo(c) > 0) {
+            
+            if (izquierda == null) {
+                
+                izquierda = c; 
+            }else{
+                
+                izquierda.insertar(c);
+            }
+        }else{
+            
+            if (derecha == null) {
+                
+                derecha = c;
+            }else{
+                
+                derecha.insertar(c);
+            }
+        }
+    }    
     
     
 }

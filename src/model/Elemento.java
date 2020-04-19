@@ -9,16 +9,13 @@ public class Elemento extends Alimento{
 
 	private String nombre;
 	private boolean saludable;
-	
-	public Elemento(double calorias, int tipo, double colesterol, double vitaminaA, double vitaminaC, double calcio,
-			double hierro, double sodio, double carbohidrato, double azucar, double proteina, double porciones,
-			boolean favorito, boolean omitir, double grasasSaturadas, double fibra, String nombre, boolean saludable) {
-		super(calorias, tipo, colesterol, vitaminaA, vitaminaC, calcio, hierro, sodio, carbohidrato, azucar, proteina,
-				porciones, favorito, omitir, grasasSaturadas, fibra);
-		this.nombre = nombre;
-		this.saludable = saludable;
-	}
 
+    public Elemento(String nombre, boolean saludable, double calorias, int tipo, boolean favorito) {
+        super(calorias, tipo, favorito);
+        this.nombre = nombre;
+        this.saludable = saludable;
+    }
+ 
 	public String getNombre() {
 		return nombre;
 	}
