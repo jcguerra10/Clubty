@@ -78,7 +78,7 @@ public class Cafe extends Liquido implements Comparable<Cafe>{
         return (izquierda == null) ? this : izquierda.darMenor();
     }
     
-    public Cafe deleteAgua(String numVaso){
+    public Cafe deleteCafe(String numVaso){
         
         if (esHoja()) {
             
@@ -96,7 +96,7 @@ public class Cafe extends Liquido implements Comparable<Cafe>{
             }
             
             Cafe sucesor = derecha.darMenor();
-            derecha = derecha.deleteAgua(sucesor.getNoVaso());
+            derecha = derecha.deleteCafe(sucesor.getNoVaso());
             sucesor.izquierda =izquierda;
             sucesor.derecha = derecha;
             
@@ -104,10 +104,10 @@ public class Cafe extends Liquido implements Comparable<Cafe>{
             
         }else if (noVaso.compareToIgnoreCase(numVaso)>0) {
             
-            izquierda = izquierda.deleteAgua(numVaso);
+            izquierda = izquierda.deleteCafe(numVaso);
             
         }else            
-            derecha = derecha.deleteAgua(numVaso);
+            derecha = derecha.deleteCafe(numVaso);
         
         return this;
         
