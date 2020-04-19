@@ -1,5 +1,6 @@
 package ui;
 
+import Thread.WaterFill;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Observable;
@@ -14,7 +15,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ComboBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sun.reflect.ReflectionFactory.GetReflectionFactoryAction;
@@ -23,6 +28,8 @@ public class ControllerHidratacion implements Initializable {
 
 	@FXML
 	public ComboBox<String> cb;
+        public Canvas canvas;
+        public ImageView iv;
 
 	ObservableList<String> ol = FXCollections.observableArrayList("Agua", "Cafe");
 
@@ -67,5 +74,17 @@ public class ControllerHidratacion implements Initializable {
 			
 		}
 	}
+        
+        public void addGlass(ActionEvent event){
+            
+            GraphicsContext gc = canvas.getGraphicsContext2D();
+            Image glass = iv.getImage();
+            Image fill = new Image("img/fill.png");
+            Image fondo = new Image("/img/fondo.png");
+            WaterFill wf = new WaterFill(canvas, gc, fondo, glass, fill);
+            wf.start();
+                    
+            
+        }
 
 }
