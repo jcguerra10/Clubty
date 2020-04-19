@@ -47,5 +47,18 @@ public class ControllerMenu implements Initializable {
 			e.printStackTrace();
 		}
 	}
+	
+	public void bienestar() {
+		try {
+			FXMLLoader fl = new FXMLLoader(getClass().getResource("bienestarPre.fxml"));
+			Parent p = fl.load();
+			Stage s = new Stage();
+			s.setScene(new Scene(p));			
+			s.show();			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }

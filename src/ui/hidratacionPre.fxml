@@ -17,7 +17,7 @@
       </Label>
       <ImageView fitHeight="104.0" fitWidth="103.0" layoutX="218.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/hidratacion.png" />
+            <Image url="@../img/hidratacion.png" />
          </image>
       </ImageView>
       <ComboBox fx:id="cb" layoutX="162.0" layoutY="167.0" prefWidth="150.0" visibleRowCount="3" />
