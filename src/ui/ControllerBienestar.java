@@ -52,10 +52,10 @@ public class ControllerBienestar implements Initializable {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		} else if (res.equals("Cafe")) {
+		} else if (res.equals("Concentracion")) {
 			try {
 				(((Node) event.getSource())).getScene().getWindow().hide();
-				FXMLLoader fl = new FXMLLoader(getClass().getResource("cafe.fxml"));
+				FXMLLoader fl = new FXMLLoader(getClass().getResource("concentracion.fxml"));
 				Parent p = fl.load();
 				Stage st = new Stage();
 				st.setScene(new Scene(p));				
@@ -64,8 +64,17 @@ public class ControllerBienestar implements Initializable {
 				e.printStackTrace();
 			}
 		}
-		else {
-			
+		else if (res.equals("Ejercicio")){
+			try {
+				(((Node) event.getSource())).getScene().getWindow().hide();
+				FXMLLoader fl = new FXMLLoader(getClass().getResource("ejercicio.fxml"));
+				Parent p = fl.load();
+				Stage st = new Stage();
+				st.setScene(new Scene(p));				
+				st.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
