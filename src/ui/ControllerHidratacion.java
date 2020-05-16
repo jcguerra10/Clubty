@@ -61,25 +61,23 @@ public class ControllerHidratacion implements Initializable {
 
 		if (res.equals("Agua")) {
 			try {
-				(((Node) event.getSource())).getScene().getWindow().hide();
+				Pane pane = cm.getMainPane();
 				FXMLLoader fl = new FXMLLoader(getClass().getResource("agua.fxml"));
 				fl.setController(this);
 				Parent p = fl.load();
-				Stage st = new Stage();
-				st.setScene(new Scene(p));
-				st.show();
+				pane.getChildren().clear();
+				pane.getChildren().add(p);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} else if (res.equals("Cafe")) {
 			try {
-				(((Node) event.getSource())).getScene().getWindow().hide();
+				Pane pane = cm.getMainPane();
 				FXMLLoader fl = new FXMLLoader(getClass().getResource("cafe.fxml"));
 				fl.setController(this);
 				Parent p = fl.load();
-				Stage st = new Stage();
-				st.setScene(new Scene(p));
-				st.show();
+				pane.getChildren().clear();
+				pane.getChildren().add(p);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

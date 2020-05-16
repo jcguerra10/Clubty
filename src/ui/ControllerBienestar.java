@@ -42,6 +42,7 @@ public class ControllerBienestar implements Initializable {
 	}
 
 	public void regresar(MouseEvent event) throws IOException {
+		System.out.println("hey");
 		Pane pane = cm.getMainPane();
 		FXMLLoader fl = new FXMLLoader(getClass().getResource("menu.fxml"));
 		fl.setController(cm);
@@ -55,36 +56,33 @@ public class ControllerBienestar implements Initializable {
 
 		if (res.equals("Suenio")) {
 			try {
-				(((Node) event.getSource())).getScene().getWindow().hide();
+				Pane pane = cm.getMainPane();
 				FXMLLoader fl = new FXMLLoader(getClass().getResource("suenio.fxml"));
 				fl.setController(this);
 				Parent p = fl.load();
-				Stage st = new Stage();
-				st.setScene(new Scene(p));
-				st.show();
+				pane.getChildren().clear();
+				pane.getChildren().add(p);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} else if (res.equals("Concentracion")) {
 			try {
-				(((Node) event.getSource())).getScene().getWindow().hide();
+				Pane pane = cm.getMainPane();
 				FXMLLoader fl = new FXMLLoader(getClass().getResource("concentracion.fxml"));
 				fl.setController(this);
 				Parent p = fl.load();
-				Stage st = new Stage();
-				st.setScene(new Scene(p));
-				st.show();
+				pane.getChildren().clear();
+				pane.getChildren().add(p);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} else if (res.equals("Ejercicio")) {
 			try {
-				(((Node) event.getSource())).getScene().getWindow().hide();
+				Pane pane = cm.getMainPane();
 				FXMLLoader fl = new FXMLLoader(getClass().getResource("ejercicio.fxml"));
 				Parent p = fl.load();
-				Stage st = new Stage();
-				st.setScene(new Scene(p));
-				st.show();
+				pane.getChildren().clear();
+				pane.getChildren().add(p);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

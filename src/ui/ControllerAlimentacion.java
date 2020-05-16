@@ -36,5 +36,6 @@ public class ControllerAlimentacion implements Initializable {
 		pane.getChildren().clear();
 		pane.getChildren().add(p);
 	}
-
+	
+	
 }
