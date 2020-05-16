@@ -26,8 +26,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			FXMLLoader fl = new FXMLLoader(getClass().getResource("menu.fxml"));
-			Parent p = fl.load();
+			FXMLLoader fl = new FXMLLoader(getClass().getResource("fondo.fxml"));
+			fl.setController(new ControllerMenu());
+			Parent p = fl.load();			
 			primaryStage.setScene(new Scene(p));
 			primaryStage.show();
 		} catch (IOException e) {

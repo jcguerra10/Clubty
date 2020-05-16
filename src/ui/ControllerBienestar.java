@@ -16,28 +16,40 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class ControllerBienestar implements Initializable {
+
+	private ControllerMenu cm;
 
 	@FXML
 	ComboBox<String> cb;
 	@FXML
 	Slider sl;
-	
+
 	ObservableList<String> ol = FXCollections.observableArrayList("Suenio", "Concentracion", "Ejercicio");
-	
+
+	public ControllerBienestar(ControllerMenu cm) {
+		this.cm = cm;
+	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		if (cb != null) {
 			cb.setItems(ol);
 		}
 	}
-	
-	public void regresar(MouseEvent event) {
-		(((Node) event.getSource())).getScene().getWindow().hide();
+
+	public void regresar(MouseEvent event) throws IOException {
+		Pane pane = cm.getMainPane();
+		FXMLLoader fl = new FXMLLoader(getClass().getResource("menu.fxml"));
+		fl.setController(cm);
+		Parent p = fl.load();
+		pane.getChildren().clear();
+		pane.getChildren().add(p);
 	}
-	
+
 	public void goTo(ActionEvent event) {
 		String res = cb.getValue();
 
@@ -45,9 +57,10 @@ public class ControllerBienestar implements Initializable {
 			try {
 				(((Node) event.getSource())).getScene().getWindow().hide();
 				FXMLLoader fl = new FXMLLoader(getClass().getResource("suenio.fxml"));
+				fl.setController(this);
 				Parent p = fl.load();
 				Stage st = new Stage();
-				st.setScene(new Scene(p));				
+				st.setScene(new Scene(p));
 				st.show();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -56,31 +69,31 @@ public class ControllerBienestar implements Initializable {
 			try {
 				(((Node) event.getSource())).getScene().getWindow().hide();
 				FXMLLoader fl = new FXMLLoader(getClass().getResource("concentracion.fxml"));
+				fl.setController(this);
 				Parent p = fl.load();
 				Stage st = new Stage();
-				st.setScene(new Scene(p));				
+				st.setScene(new Scene(p));
 				st.show();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
-		else if (res.equals("Ejercicio")){
+		} else if (res.equals("Ejercicio")) {
 			try {
 				(((Node) event.getSource())).getScene().getWindow().hide();
 				FXMLLoader fl = new FXMLLoader(getClass().getResource("ejercicio.fxml"));
 				Parent p = fl.load();
 				Stage st = new Stage();
-				st.setScene(new Scene(p));				
+				st.setScene(new Scene(p));
 				st.show();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 	}
-	
+
 	public void tellme() {
-		System.out.println(sl.getValue()+"");
-		
+		System.out.println(sl.getValue() + "");
+
 	}
 
 }
