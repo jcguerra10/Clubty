@@ -42,7 +42,6 @@ public class ControllerBienestar implements Initializable {
 	}
 
 	public void regresar(MouseEvent event) throws IOException {
-		System.out.println("hey");
 		Pane pane = cm.getMainPane();
 		FXMLLoader fl = new FXMLLoader(getClass().getResource("menu.fxml"));
 		fl.setController(cm);

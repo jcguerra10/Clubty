@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import model.App;
 
 /**
  * @author JuanC.Guerra
@@ -27,7 +28,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader fl = new FXMLLoader(getClass().getResource("fondo.fxml"));
-			fl.setController(new ControllerMenu());
+			fl.setController(new ControllerMenu(new App()));		
 			Parent p = fl.load();			
 			primaryStage.setScene(new Scene(p));
 			primaryStage.show();

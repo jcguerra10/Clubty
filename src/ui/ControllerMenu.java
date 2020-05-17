@@ -13,21 +13,27 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import model.App;
+import model.Usuario;
 
 public class ControllerMenu implements Initializable {
 
 	private ControllerAlimentacion contAlimentacion;
 	private ControllerBienestar contBienestar;
 	private ControllerHidratacion contHidratacion;
-	
+	private ControllerUsuario contUsuario;
+
 	@FXML
 	private Pane mainPane;
 
+	private App app;
 
-	public ControllerMenu() {
+	public ControllerMenu(App app) {
 		contAlimentacion = new ControllerAlimentacion(this);
 		contBienestar = new ControllerBienestar(this);
 		contHidratacion = new ControllerHidratacion(this);
+		contUsuario = new ControllerUsuario(this);
+		this.app = app;
 	}
 
 	@Override
@@ -39,19 +45,18 @@ public class ControllerMenu implements Initializable {
 		return mainPane;
 	}
 
+	public App getApp() {
+		return app;
+	}
+
 	public void alimentacion() {
 		try {
 			FXMLLoader fl = new FXMLLoader(getClass().getResource("alimentacion.fxml"));
 			fl.setController(contAlimentacion);
-			Parent p = fl.load();			
+			Parent p = fl.load();
 			mainPane.getChildren().clear();
 			mainPane.getChildren().add(p);
-//			Stage s = new Stage();
-//			s.setScene(new Scene(p));			
-//			s.show();
-
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -65,7 +70,6 @@ public class ControllerMenu implements Initializable {
 			mainPane.getChildren().clear();
 			mainPane.getChildren().add(p);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -78,7 +82,18 @@ public class ControllerMenu implements Initializable {
 			mainPane.getChildren().clear();
 			mainPane.getChildren().add(p);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void usuario() {
+		try {
+			FXMLLoader fl = new FXMLLoader(getClass().getResource("usuario.fxml"));
+			fl.setController(contUsuario);
+			Parent p = fl.load();
+			mainPane.getChildren().clear();
+			mainPane.getChildren().add(p);
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

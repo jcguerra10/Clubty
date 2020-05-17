@@ -14,7 +14,7 @@
         <tabs>
           <Tab text="Menu">
                <content>
-                  <Pane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="mainPane" prefHeight="585.0" prefWidth="335.0">
                      <children>
                         <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="137.0" text="Bienvenido :">
                            <font>
@@ -46,7 +46,7 @@
                               <Image url="@../img/hidratacion.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="103.0" fitWidth="99.0" layoutX="14.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="103.0" fitWidth="99.0" layoutX="14.0" layoutY="56.0" onMouseClicked="#usuario" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/user.png" />
                            </image>
