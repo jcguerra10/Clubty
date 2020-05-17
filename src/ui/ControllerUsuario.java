@@ -5,17 +5,20 @@ import java.net.URL;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
+import exceptions.EmptyException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import model.App;
@@ -52,30 +55,29 @@ public class ControllerUsuario implements Initializable {
 	@FXML
 	private Button Cambiar;
 
-    @FXML
-    private TextField nombreT;
+	@FXML
+	private TextField nombreT;
 
-    @FXML
-    private TextField apellidoT;
+	@FXML
+	private TextField apellidoT;
 
-    @FXML
-    private TextField alturaT;
+	@FXML
+	private TextField alturaT;
 
-    @FXML
-    private TextField pesoT;
+	@FXML
+	private TextField pesoT;
 
-    @FXML
-    private TextField aniosT;
+	@FXML
+	private TextField aniosT;
 
-    @FXML
-    private DatePicker fechaNacimientoDP;
+	@FXML
+	private DatePicker fechaNacimientoDP;
 
-    @FXML
-    private ComboBox<String> cbSexo;
-    
-    private ObservableList<String> ol = FXCollections.observableArrayList("M", "F");
+	@FXML
+	private ComboBox<String> cbSexo;
 
-	
+	private ObservableList<String> ol = FXCollections.observableArrayList("M", "F");
+
 	public ControllerUsuario(ControllerMenu cm) {
 		this.cm = cm;
 	}
@@ -99,7 +101,7 @@ public class ControllerUsuario implements Initializable {
 		pane.getChildren().clear();
 		pane.getChildren().add(p);
 	}
-	
+
 	private void regresar() throws IOException {
 		Pane pane = cm.getMainPane();
 		FXMLLoader fl = new FXMLLoader(getClass().getResource("menu.fxml"));
@@ -124,11 +126,26 @@ public class ControllerUsuario implements Initializable {
 	}
 
 	public void cambiarUsuario() throws IOException {
-		App a = cm.getApp();
-		a.nuevoUsuario(nombreT.getText(), apellidoT.getText(), Double.parseDouble(alturaT.getText()),
-				Double.parseDouble(pesoT.getText()), fechaNacimientoDP.getEditor().getText(), cbSexo.getValue().charAt(0),
-				Integer.parseInt(aniosT.getText()));
-		regresar();
+		App app = cm.getApp();
+		try {
+			if (nombreT.getLength() == 0 || apellidoT.getLength() == 0 || fechaNacimientoDP.getValue() == null
+					|| cbSexo.getValue() == null) {
+				throw new EmptyException();
+			}
+			String n = nombreT.getText();
+			String ap = apellidoT.getText();
+			double a = Double.parseDouble(alturaT.getText());
+			double p = Double.parseDouble(pesoT.getText());
+			String fn = fechaNacimientoDP.getEditor().getText();
+			String sx = cbSexo.getValue();
+			int an = Integer.parseInt(aniosT.getText());			
+			app.nuevoUsuario(n, ap, a, p, fn, sx, an);
+			regresar();
+		} catch (NumberFormatException e) {
+			aviso();
+		} catch (EmptyException e) {
+			aviso();
+		}
 	}
 
 	public void cambiarVentanaUsuACambio() throws IOException {
@@ -138,5 +155,12 @@ public class ControllerUsuario implements Initializable {
 		Parent p = fl.load();
 		pane.getChildren().clear();
 		pane.getChildren().add(p);
+	}
+
+	private void aviso() {
+		Alert a = new Alert(AlertType.INFORMATION);
+		a.setTitle("Espacio vacio");
+		a.setContentText("ha dejado un espacio en Blanco");
+		a.showAndWait();
 	}
 }

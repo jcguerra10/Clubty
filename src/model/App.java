@@ -23,13 +23,14 @@ public class App implements Serializable {
 	}
 
 	public void nuevoUsuario(String nombre, String apellido, double altura, double peso, String fechaNacimiento,
-			char sexo, int anios) {
+			String sexo, int anios) {
 		usu = new Usuario(nombre, apellido, altura, peso, fechaNacimiento, sexo, anios);
 	}
 
-	public String[] getAllUsuario() {
-		String[] s = new String[7];
+	public String[] getAllUsuario() {	
+		String[] s = null;
 		if (usu != null) {
+			s = new String[7];
 			s[0] = usu.getNombre();
 			s[1] = usu.getApellido();
 			s[2] = usu.getAltura() + "";

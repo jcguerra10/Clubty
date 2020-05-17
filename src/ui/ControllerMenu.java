@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.App;
@@ -22,6 +23,13 @@ public class ControllerMenu implements Initializable {
 	private ControllerBienestar contBienestar;
 	private ControllerHidratacion contHidratacion;
 	private ControllerUsuario contUsuario;
+
+	@FXML
+	private Label nom;
+	@FXML
+	private Label ape;
+	@FXML
+	private Label eda;
 
 	@FXML
 	private Pane mainPane;
@@ -38,7 +46,16 @@ public class ControllerMenu implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		setLabels();
+	}
 
+	private void setLabels() {
+		String[] s = app.getAllUsuario();
+		if (s != null) {
+			nom.setText(s[0]);
+			ape.setText(s[1]);
+			eda.setText(s[6]);
+		}
 	}
 
 	public Pane getMainPane() {

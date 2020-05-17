@@ -79,8 +79,8 @@
             <Font name="System Bold" size="9.0" />
          </font>
       </Label>
-      <Label layoutX="128.0" layoutY="80.0" prefHeight="17.0" prefWidth="196.0" text="Nombre" />
-      <Label layoutX="128.0" layoutY="97.0" prefHeight="17.0" prefWidth="198.0" text="apellido" />
-      <Label layoutX="128.0" layoutY="114.0" prefHeight="17.0" prefWidth="202.0" text="edad" />
+      <Label fx:id="nom" layoutX="128.0" layoutY="80.0" prefHeight="17.0" prefWidth="196.0" text="Nombre" />
+      <Label fx:id="ape" layoutX="128.0" layoutY="97.0" prefHeight="17.0" prefWidth="198.0" text="apellido" />
+      <Label fx:id="eda" layoutX="128.0" layoutY="114.0" prefHeight="17.0" prefWidth="202.0" text="edad" />
    </children>
 </Pane>

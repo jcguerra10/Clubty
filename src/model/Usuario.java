@@ -9,10 +9,10 @@ public class Usuario implements Serializable {
 	private double altura;
 	private double peso;
 	private String fechaNacimiento;
-	private char sexo;
+	private String sexo;
 	private int anios;
 
-	public Usuario(String nombre, String apellido, double altura, double peso, String fechaNacimiento, char sexo,
+	public Usuario(String nombre, String apellido, double altura, double peso, String fechaNacimiento, String sexo,
 			int anios) {
 		super();
 		this.nombre = nombre;
@@ -44,7 +44,7 @@ public class Usuario implements Serializable {
 		return fechaNacimiento;
 	}
 
-	public char getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 
