@@ -2,14 +2,20 @@ package ui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Observable;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import model.App;
@@ -46,6 +52,30 @@ public class ControllerUsuario implements Initializable {
 	@FXML
 	private Button Cambiar;
 
+    @FXML
+    private TextField nombreT;
+
+    @FXML
+    private TextField apellidoT;
+
+    @FXML
+    private TextField alturaT;
+
+    @FXML
+    private TextField pesoT;
+
+    @FXML
+    private TextField aniosT;
+
+    @FXML
+    private DatePicker fechaNacimientoDP;
+
+    @FXML
+    private ComboBox<String> cbSexo;
+    
+    private ObservableList<String> ol = FXCollections.observableArrayList("M", "F");
+
+	
 	public ControllerUsuario(ControllerMenu cm) {
 		this.cm = cm;
 	}
@@ -56,9 +86,21 @@ public class ControllerUsuario implements Initializable {
 				&& sexo != null && anios != null) {
 			setLabels();
 		}
+		if (cbSexo != null) {
+			cbSexo.setItems(ol);
+		}
 	}
 
 	public void regresar(MouseEvent event) throws IOException {
+		Pane pane = cm.getMainPane();
+		FXMLLoader fl = new FXMLLoader(getClass().getResource("menu.fxml"));
+		fl.setController(cm);
+		Parent p = fl.load();
+		pane.getChildren().clear();
+		pane.getChildren().add(p);
+	}
+	
+	private void regresar() throws IOException {
 		Pane pane = cm.getMainPane();
 		FXMLLoader fl = new FXMLLoader(getClass().getResource("menu.fxml"));
 		fl.setController(cm);
@@ -81,11 +123,12 @@ public class ControllerUsuario implements Initializable {
 		}
 	}
 
-	public void cambiarUsuario() {
+	public void cambiarUsuario() throws IOException {
 		App a = cm.getApp();
-		a.nuevoUsuario(nombre.getText(), apellido.getText(), Double.parseDouble(altura.getText()),
-				Double.parseDouble(peso.getText()), fechaNacimiento.getText(), sexo.getText().charAt(0),
-				Integer.parseInt(anios.getText()));
+		a.nuevoUsuario(nombreT.getText(), apellidoT.getText(), Double.parseDouble(alturaT.getText()),
+				Double.parseDouble(pesoT.getText()), fechaNacimientoDP.getEditor().getText(), cbSexo.getValue().charAt(0),
+				Integer.parseInt(aniosT.getText()));
+		regresar();
 	}
 
 	public void cambiarVentanaUsuACambio() throws IOException {

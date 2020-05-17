@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -56,13 +58,13 @@
          </font>
       </Label>
       <Label layoutX="14.0" layoutY="6.0" onMouseClicked="#regresar" text="&lt; regresar" />
-      <Button layoutX="133.0" layoutY="510.0" mnemonicParsing="false" text="GUARDAR" />
-      <TextField layoutX="93.0" layoutY="203.0" prefHeight="11.0" prefWidth="149.0" />
-      <TextField layoutX="93.0" layoutY="245.0" />
-      <TextField layoutX="93.0" layoutY="286.0" />
-      <TextField layoutX="93.0" layoutY="328.0" />
-      <TextField layoutX="93.0" layoutY="370.0" />
-      <TextField layoutX="93.0" layoutY="412.0" />
-      <TextField layoutX="94.0" layoutY="454.0" />
+      <Button layoutX="133.0" layoutY="510.0" mnemonicParsing="false" onAction="#cambiarUsuario" text="GUARDAR" />
+      <TextField fx:id="nombreT" layoutX="93.0" layoutY="203.0" prefHeight="11.0" prefWidth="149.0" />
+      <TextField fx:id="apellidoT" layoutX="93.0" layoutY="245.0" />
+      <TextField fx:id="alturaT" layoutX="93.0" layoutY="286.0" />
+      <TextField fx:id="pesoT" layoutX="93.0" layoutY="328.0" />
+      <TextField fx:id="aniosT" layoutX="94.0" layoutY="454.0" />
+      <DatePicker fx:id="fechaNacimientoDP" layoutX="93.0" layoutY="370.0" prefHeight="25.0" prefWidth="149.0" />
+      <ComboBox fx:id="cbSexo" layoutX="92.0" layoutY="412.0" prefWidth="150.0" />
    </children>
 </Pane>
