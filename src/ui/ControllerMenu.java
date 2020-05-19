@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.App;
+import model.Time;
 import model.Usuario;
 
 public class ControllerMenu implements Initializable {
@@ -24,6 +25,8 @@ public class ControllerMenu implements Initializable {
 	private ControllerHidratacion contHidratacion;
 	private ControllerUsuario contUsuario;
 
+	private Time time;
+	
 	@FXML
 	private Label nom;
 	@FXML
@@ -41,7 +44,7 @@ public class ControllerMenu implements Initializable {
 		contBienestar = new ControllerBienestar(this);
 		contHidratacion = new ControllerHidratacion(this);
 		contUsuario = new ControllerUsuario(this);
-		this.app = app;
+		this.app = app;		
 	}
 
 	@Override

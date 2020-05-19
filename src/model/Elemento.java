@@ -1,21 +1,26 @@
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Elemento extends Alimento{
+public class Elemento extends Alimento {
+
+	public static ArrayList<String> tiposArr = new ArrayList<String>();
 
 	private String nombre;
 	private boolean saludable;
+	private String tipo;
 
-    public Elemento(String nombre, boolean saludable, double calorias, int tipo, boolean favorito) {
-        super(calorias, tipo, favorito);
-        this.nombre = nombre;
-        this.saludable = saludable;
-    }
- 
+	public Elemento(String nombre, boolean saludable, double calorias, String tipo, boolean favorito) {
+		super(calorias, tipo, favorito);
+		this.nombre = nombre;
+		this.saludable = saludable;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -36,5 +41,5 @@ public class Elemento extends Alimento{
 	public String toString() {
 		return "Elemento [nombre=" + nombre + ", saludable=" + saludable + "]";
 	}
-	
+
 }

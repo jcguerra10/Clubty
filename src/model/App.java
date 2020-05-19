@@ -42,4 +42,14 @@ public class App implements Serializable {
 		return s;
 	}
 
+	public void agregarDesayuno(Desayuno d) {
+		alimentacion.anadirDesayuno(d);
+	}
+	public void agregarAlmuerzo(Almuerzo a) {
+		alimentacion.anadirAlmuerzo(a);
+	}
+	public void agregarComida(Comida c) {
+		alimentacion.anadirComida(c);
+	}
+
 }

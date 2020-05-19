@@ -9,19 +9,17 @@ import java.util.Calendar;
  * @author juanc.guerra
  */
 public class Desayuno {
-	
+
 	private ArrayList<Elemento> elementos;
-	
+
 	private Desayuno siguiente;
 	private Desayuno anterior;
 	private double caloriasTotales;
-	private String dia;
+	private String dia;		
 
-	public Desayuno(Desayuno siguiente, Desayuno anterior, double caloriasTotales, String dia) {
+	public Desayuno(ArrayList<Elemento> elementos, String dia) {
 		super();
-		this.siguiente = siguiente;
-		this.anterior = anterior;
-		this.caloriasTotales = caloriasTotales;
+		this.elementos = elementos;
 		this.dia = dia;
 	}
 
@@ -93,4 +91,5 @@ public class Desayuno {
 		double cal = 0;
 		return cal;
 	}
+
 }
