@@ -51,5 +51,13 @@ public class App implements Serializable {
 	public void agregarComida(Comida c) {
 		alimentacion.anadirComida(c);
 	}
+        
+        public void agregarConcentracion(Concentracion c){
+                personal.AgregarConcentracion(c);
+        }
+        
+        public void agregarSuenio(Suenio s){
+                personal.AgregarSuenio(s);
+        }
 
 }

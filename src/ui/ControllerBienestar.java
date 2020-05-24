@@ -2,6 +2,7 @@ package ui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -13,11 +14,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import model.App;
+import model.Suenio;
 
 public class ControllerBienestar implements Initializable {
 
@@ -27,6 +35,18 @@ public class ControllerBienestar implements Initializable {
 	ComboBox<String> cb;
 	@FXML
 	Slider sl;
+        @FXML
+        TextField horas;
+        @FXML
+        TextField minutos;
+        @FXML
+        Button fin;
+        @FXML
+        DatePicker diaBuscar;
+        @FXML
+        Button buscar;
+        @FXML
+        DatePicker dp;
 
 	ObservableList<String> ol = FXCollections.observableArrayList("Suenio", "Concentracion", "Ejercicio");
 
@@ -61,6 +81,7 @@ public class ControllerBienestar implements Initializable {
 				Parent p = fl.load();
 				pane.getChildren().clear();
 				pane.getChildren().add(p);
+                                
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -87,9 +108,35 @@ public class ControllerBienestar implements Initializable {
 			}
 		}
 	}
+        
+        public  void addSuenio(ActionEvent event) {
+
+           App a = new App();
+            if (horas.getText().equalsIgnoreCase("") || horas.getText().equalsIgnoreCase(" ") || horas.getText().equalsIgnoreCase(null)
+                    && minutos.getText().equalsIgnoreCase("") || minutos.getText().equalsIgnoreCase(" ") || minutos.getText().equalsIgnoreCase(null) ) {
+                
+                
+            }else{
+                
+                
+                LocalDate ld = dp.getValue();
+                String dia = ld.getDayOfMonth()+"/"+ld.getMonth()+"/"+ld.getYear();
+                int horaSuenio = Integer.parseInt(horas.getText());
+                int minutoSuenio = Integer.parseInt(minutos.getText());
+                double rate = sl.getValue();
+                int day = ld.getDayOfMonth();
+                int month = ld.getMonthValue();
+                int year = ld.getYear();
+                Suenio s = new Suenio(rate, horaSuenio, minutoSuenio, dia);
+                a.agregarSuenio(s);
+                
+                
+            }
+        }
 
 	public void tellme() {
-		System.out.println(sl.getValue() + "");
+                System.out.println(sl.getValue() + "");
+                
 
 	}
 

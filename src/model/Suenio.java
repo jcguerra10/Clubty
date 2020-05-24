@@ -5,7 +5,7 @@ package model;
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Suenio extends Salud implements Comparable<Suenio>{
+public class Suenio implements Comparable<Suenio>{
 
     private double rate;
     private int hora, min;
@@ -13,8 +13,8 @@ public class Suenio extends Salud implements Comparable<Suenio>{
     private Suenio izquierda;
     private String noDia;
 
-    public Suenio(double rate, int hora, int min, String noDia, double caloriasQuemadas, int dia, int month, int year, int horas, int minutos) {
-        super(caloriasQuemadas, dia, month, year, horas, minutos);
+    public Suenio(double rate, int hora, int min, String noDia) {
+        
         this.rate = rate;
         this.hora = hora;
         this.min = min;
