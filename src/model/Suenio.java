@@ -1,5 +1,7 @@
 package model;
 
+import exceptions.EqualsException;
+
 /**
  *
  * @author diegoa.torres
@@ -76,7 +78,8 @@ public class Suenio implements Comparable<Suenio>{
         return this.getNoDia().compareToIgnoreCase(arg0.getNoDia());
     }
     
-    public void insertar(Suenio nuevo) {
+    public void insertar(Suenio nuevo) throws EqualsException{
+
 
         if (compareTo(nuevo) > 0) {
 
@@ -87,7 +90,7 @@ public class Suenio implements Comparable<Suenio>{
 
                 izquierda.insertar(nuevo);
             }
-        } else {
+        } else if(compareTo(nuevo) < 0){
 
             if (derecha == null) {
 
@@ -96,6 +99,9 @@ public class Suenio implements Comparable<Suenio>{
 
                 derecha.insertar(nuevo);
             }
+        }else{
+            
+            throw new EqualsException("No se puede registrar sueños de un mismo dia");
         }
     }
         

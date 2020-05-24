@@ -1,5 +1,7 @@
 package model;
 
+import exceptions.EqualsException;
+
 /**
  *
  * @author diegoa.torres
@@ -17,6 +19,32 @@ public class Personal {
             raizS = null;
             raizC = null;
     }
+
+    public Ejercicio getRaizE() {
+        return raizE;
+    }
+
+    public void setRaizE(Ejercicio raizE) {
+        this.raizE = raizE;
+    }
+
+    public Suenio getRaizS() {
+        return raizS;
+    }
+
+    public void setRaizS(Suenio raizS) {
+        this.raizS = raizS;
+    }
+
+    public Concentracion getRaizC() {
+        return raizC;
+    }
+
+    public void setRaizC(Concentracion raizC) {
+        this.raizC = raizC;
+    }
+    
+    
     
     public Ejercicio BuscarEjercicios(String nom) {
 
@@ -58,7 +86,7 @@ public class Personal {
         }
     }
     
-    public void AgregarSuenio(Suenio e) {
+    public void AgregarSuenio(Suenio e) throws EqualsException {
 
         if (raizS == null) {
 
