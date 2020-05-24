@@ -7,16 +7,11 @@ package model;
  */
 public class Alimento {
 
-	public static final int LACTEOS = 1;
-	public static final int AZUCARES = 2;
-	public static final int HARINAS = 3;
-	public static final int PROTEINAS = 4;
-
 	private double calorias;
-	private int tipo;
+	private String tipo;
 	private boolean favorito;
 
-    public Alimento(double calorias, int tipo, boolean favorito) {
+    public Alimento(double calorias, String tipo, boolean favorito) {
         this.calorias = calorias;
         this.tipo = tipo;
         this.favorito = favorito;
@@ -31,11 +26,11 @@ public class Alimento {
 		this.calorias = calorias;
 	}
 
-	public int getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(int tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 

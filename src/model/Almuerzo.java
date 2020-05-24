@@ -14,15 +14,11 @@ public class Almuerzo {
 	private Almuerzo siguiente;
 	private Almuerzo anterior;
 	private double caloriasTotales;
-	private String dia;
+	private String dia;	
 
-	public Almuerzo(ArrayList<Elemento> elementos, Almuerzo siguiente, Almuerzo anterior, double caloriasTotales,
-			String dia) {
+	public Almuerzo(ArrayList<Elemento> elementos, String dia) {
 		super();
 		this.elementos = elementos;
-		this.siguiente = siguiente;
-		this.anterior = anterior;
-		this.caloriasTotales = caloriasTotales;
 		this.dia = dia;
 	}
 

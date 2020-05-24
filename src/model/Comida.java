@@ -16,13 +16,9 @@ public class Comida {
 	private double caloriasTotales;
 	private String dia;
 
-	public Comida(ArrayList<Elemento> elementos, Comida siguiente, Comida anterior, double caloriasTotales,
-			String dia) {
+	public Comida(ArrayList<Elemento> elementos, String dia) {
 		super();
 		this.elementos = elementos;
-		this.siguiente = siguiente;
-		this.anterior = anterior;
-		this.caloriasTotales = caloriasTotales;
 		this.dia = dia;
 	}
 
@@ -65,7 +61,7 @@ public class Comida {
 	public void setDia(String dia) {
 		this.dia = dia;
 	}
-	
+
 	public Elemento BuscarElementos(String nombre) {
 		Elemento encontrado = null;
 		int max = elementos.size() - 1;
