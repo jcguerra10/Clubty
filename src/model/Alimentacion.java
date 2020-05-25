@@ -34,14 +34,14 @@ public class Alimentacion {
 		}
 	}
 
-	public Desayuno buscarDesayuno(Desayuno d) {
+	public Desayuno buscarDesayuno(String dia) {
 		Desayuno encontrado = null;
 		Desayuno temp = primerDesayuno;
 		if (temp != null) {
-			while (temp != null && !(temp.getDia().equals(d.getDia()))) {
+			while (temp != null && !(temp.getDia().equals(dia))) {
 				temp = temp.getSiguiente();
 			}
-			if (temp.getDia().equals(d.getDia())) {
+			if (temp.getDia().equals(dia)) {
 				encontrado = temp;
 			}
 		}

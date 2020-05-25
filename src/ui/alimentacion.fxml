@@ -23,40 +23,40 @@
             <Image url="@../img/alimentacion.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="cbtipoAlimentacion" layoutX="162.0" layoutY="167.0" prefWidth="150.0" visibleRowCount="3" />
-      <Label layoutX="10.0" layoutY="135.0" text="Registrar Alimentación">
+      <ComboBox fx:id="cbtipoAlimentacion" layoutX="161.0" layoutY="159.0" prefWidth="150.0" visibleRowCount="3" />
+      <Label layoutX="9.0" layoutY="127.0" text="Registrar Alimentación">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="16.0" layoutY="171.0" text="Tipo de alimentación" />
-      <Label layoutX="10.0" layoutY="204.0" text="Elemento">
+      <Label layoutX="15.0" layoutY="163.0" text="Tipo de alimentación" />
+      <Label layoutX="9.0" layoutY="196.0" text="Elemento">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="19.0" layoutY="270.0" prefHeight="17.0" prefWidth="44.0" text="Calorias" />
-      <TextField fx:id="fNombre" layoutX="116.0" layoutY="232.0" prefHeight="25.0" prefWidth="190.0" />
-      <TextField fx:id="fCalorias" layoutX="116.0" layoutY="266.0" prefHeight="25.0" prefWidth="190.0" />
-      <Label layoutX="19.0" layoutY="303.0" text="Tipo" />
-      <Label layoutX="20.0" layoutY="337.0" text="Favorito" />
-      <ComboBox fx:id="cbtipo" layoutX="116.0" layoutY="299.0" prefHeight="25.0" prefWidth="190.0" visibleRowCount="5" />
-      <CheckBox fx:id="cbFavorito" layoutX="116.0" layoutY="337.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="56.0" />
-      <CheckBox fx:id="cbSaludable" layoutX="116.0" layoutY="365.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="56.0" />
-      <Label layoutX="20.0" layoutY="236.0" text="Nombre" />
-      <Button layoutX="86.0" layoutY="390.0" mnemonicParsing="false" onAction="#agregarAElementos" text="AGREGAR" />
-      <Button layoutX="166.0" layoutY="390.0" mnemonicParsing="false" onAction="#finalizarAgregarComida" text="FINALIZAR" />
-      <Label layoutX="7.0" layoutY="423.0" text="Buscar">
+      <Label layoutX="18.0" layoutY="262.0" prefHeight="17.0" prefWidth="44.0" text="Calorias" />
+      <TextField fx:id="fNombre" layoutX="115.0" layoutY="224.0" prefHeight="25.0" prefWidth="190.0" />
+      <TextField fx:id="fCalorias" layoutX="115.0" layoutY="258.0" prefHeight="25.0" prefWidth="190.0" />
+      <Label layoutX="18.0" layoutY="295.0" text="Tipo" />
+      <Label layoutX="19.0" layoutY="329.0" text="Favorito" />
+      <ComboBox fx:id="cbtipo" layoutX="115.0" layoutY="291.0" prefHeight="25.0" prefWidth="190.0" visibleRowCount="5" />
+      <CheckBox fx:id="cbFavorito" layoutX="115.0" layoutY="329.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="56.0" />
+      <CheckBox fx:id="cbSaludable" layoutX="115.0" layoutY="357.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="56.0" />
+      <Label layoutX="19.0" layoutY="228.0" text="Nombre" />
+      <Button layoutX="85.0" layoutY="382.0" mnemonicParsing="false" onAction="#agregarAElementos" text="AGREGAR" />
+      <Button layoutX="165.0" layoutY="382.0" mnemonicParsing="false" onAction="#finalizarAgregarComida" text="FINALIZAR" />
+      <Label layoutX="6.0" layoutY="415.0" text="Buscar">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cbtipoAlimentacionBusqueda" layoutX="160.0" layoutY="456.0" prefWidth="150.0" visibleRowCount="3" />
-      <Label layoutX="14.0" layoutY="460.0" text="Tipo de alimentación" />
-      <Label layoutX="14.0" layoutY="502.0" prefHeight="17.0" prefWidth="34.0" text="Dia" />
-      <DatePicker fx:id="dpDia" layoutX="159.0" layoutY="498.0" prefHeight="25.0" prefWidth="150.0" />
-      <Button layoutX="101.0" layoutY="542.0" mnemonicParsing="false" text="Buscar y dar reporte" />
+      <ComboBox fx:id="cbtipoAlimentacionBusqueda" layoutX="159.0" layoutY="448.0" prefWidth="150.0" visibleRowCount="4" />
+      <Label layoutX="13.0" layoutY="452.0" text="Tipo de alimentación" />
+      <Label layoutX="13.0" layoutY="494.0" prefHeight="17.0" prefWidth="34.0" text="Dia" />
+      <DatePicker fx:id="dpDia" layoutX="158.0" layoutY="490.0" prefHeight="25.0" prefWidth="150.0" />
+      <Button layoutX="100.0" layoutY="534.0" mnemonicParsing="false" onAction="#buscar" text="Buscar y dar reporte" />
       <Label accessibleRole="BUTTON" layoutX="17.0" layoutY="14.0" onMouseClicked="#regresar" text="&lt; regresar" />
-      <Label layoutX="20.0" layoutY="365.0" text="Saludable" />
+      <Label layoutX="19.0" layoutY="357.0" text="Saludable" />
    </children>
 </Pane>

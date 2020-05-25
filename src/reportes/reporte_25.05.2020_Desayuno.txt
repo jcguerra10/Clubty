@@ -1,0 +1,5 @@
+Desayuno [caloriasTotales: 105.0, dia: 25/05/2020]
+ 
+Elementos 
+	 nombre: Pan, saludable: No Saludable
+	 nombre: Cafe, saludable: No Saludable
