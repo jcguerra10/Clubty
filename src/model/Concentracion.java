@@ -99,38 +99,17 @@ public class Concentracion extends Salud implements Comparable<Concentracion>{
         }
     }
     
-    public void mostrarPorFecha(String fecha) {
-        if (izquierda != null) {
-                izquierda.mostrarPorFecha(fecha);
-        }
-        if (this.getFecha().compareToIgnoreCase(fecha) == 0) {
-                System.out.println(this);
-        }
-        if (derecha != null) {
-                derecha.mostrarPorFecha(fecha);
-        }
-    }
-    
-    public Concentracion buscarPorFecha(String fecha) {
-        if (getFecha().compareToIgnoreCase(fecha) == 0) {
-                return this;
-        } else if (getFecha().compareToIgnoreCase(fecha) > 0) {
-                return (izquierda == null) ? null : izquierda.buscarPorFecha(fecha);
-        } else {
-                return (derecha == null) ? null : derecha.buscarPorFecha(fecha);
-        }
-    }
-    
-    public Concentracion buscarConcentracion(String dia) {
+        public Concentracion BuscarConcentracion(String dia) {
+
         if (fecha.compareToIgnoreCase(dia) == 0) {
 
                 return this;
         } else if (fecha.compareToIgnoreCase(dia) > 0) {
 
-                return (izquierda == null) ? null : izquierda.buscarConcentracion(dia);
+                return (izquierda == null) ? null : izquierda.BuscarConcentracion(dia);
         } else {
 
-                return (derecha == null) ? null : derecha.buscarConcentracion(dia);
+                return (derecha == null) ? null : derecha.BuscarConcentracion(dia);
         }
     }
 

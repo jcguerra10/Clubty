@@ -330,7 +330,8 @@ public class ControllerBienestar implements Initializable {
                 Concentracion c = new Concentracion(motive, dia, 100, day, month, year, horaConcentracion, minutoConcentracion);
                 try {
                     a.agregarConcentracion(c);
-                    System.out.println(c);
+                    System.out.println(c + " " + a.getPersonal().getRaizC());
+                    
                 } catch (EqualsException ex) {
                    
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -412,9 +413,10 @@ public class ControllerBienestar implements Initializable {
                             LocalDate ld = LocalDate.now();
                             String dia = ld.getDayOfMonth()+"/"+ld.getMonth()+"/"+ld.getYear();    
                             Concentracion c = new Concentracion(motivo1.getText(), dia, 100, ld.getDayOfMonth(), ld.getMonthValue(), ld.getYear(), tt.getR().getHour(), tt.getR().getMinute());                            
-                            System.out.println(c);
+                            
                             try {
                                 a.agregarConcentracion(c);
+                                
                             } catch (EqualsException ex) {
                                 Alert alert3 = new Alert(Alert.AlertType.ERROR);
                                 alert.setHeaderText(null);
@@ -436,9 +438,10 @@ public class ControllerBienestar implements Initializable {
                     LocalDate ld = LocalDate.now();
                     String dia = ld.getDayOfMonth()+"/"+ld.getMonth()+"/"+ld.getYear();    
                     Concentracion c = new Concentracion(motivo1.getText(), dia, 100, ld.getDayOfMonth(), ld.getMonthValue(), ld.getYear(), tt.getR().getHour(), tt.getR().getMinute());                            
-                    System.out.println(c);
+                    
                     try {
                         a.agregarConcentracion(c);
+                        
                     } catch (EqualsException ex) {
                         Alert alert3 = new Alert(Alert.AlertType.ERROR);
                         alert3.setHeaderText(null);

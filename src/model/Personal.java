@@ -106,10 +106,10 @@ public class Personal {
     }    
         
     public Concentracion buscarConcentracion(String dia) {
-        if (raizS.getNoDia().equalsIgnoreCase(dia)) {
+        if (raizC.getFecha().equalsIgnoreCase(dia)) {
                 return raizC;
         } else {
-                return raizC.buscarConcentracion(dia);
+                return raizC.BuscarConcentracion(dia);
         }
     }    
 }

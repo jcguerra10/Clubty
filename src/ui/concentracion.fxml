@@ -56,7 +56,7 @@
       <Label layoutX="10.0" layoutY="392.0" text="CRONOMETRO" />
       <TextField fx:id="cronometro" layoutX="9.0" layoutY="411.0" prefHeight="27.0" prefWidth="88.0" />
       <Slider fx:id="sl1" blockIncrement="5.0" layoutX="118.0" layoutY="392.0" majorTickUnit="1.0" max="5.0" minorTickCount="1" prefHeight="38.0" prefWidth="111.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
-      <Button fx:id="inicio" layoutX="11.0" layoutY="445.0" mnemonicParsing="false" onAction="#addSuenioAuto" prefHeight="27.0" prefWidth="79.0" text="INICIO" />
+      <Button fx:id="inicio" layoutX="11.0" layoutY="445.0" mnemonicParsing="false" onAction="#addConcentracionAuto" prefHeight="27.0" prefWidth="79.0" text="INICIO" />
       <Button fx:id="inicio2" disable="true" layoutX="100.0" layoutY="445.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="34.0" text="O" />
       <Button fx:id="fin1" layoutX="140.0" layoutY="445.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="33.0" text="||" />
       <Button fx:id="reset" disable="true" layoutX="180.0" layoutY="445.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="77.0" text="RESET" />
