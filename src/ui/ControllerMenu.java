@@ -25,8 +25,7 @@ import model.Time;
 import model.Usuario;
 
 public class ControllerMenu implements Initializable {
-
-	public static final String PATH = "src\\data\\sistema.save";
+	
 	private ControllerAlimentacion contAlimentacion;
 	private ControllerBienestar contBienestar;
 	private ControllerHidratacion contHidratacion;
@@ -65,26 +64,26 @@ public class ControllerMenu implements Initializable {
 
 			@Override
 			public void handle(WindowEvent event) {
-				save();
+				//save();
 				System.out.println("Closing the window!");
 			}
 
-			private void save() {
-				try {
-					File f = new File(PATH);
-					if (f.exists() == false) {
-						f.createNewFile();
-					}
-					ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
-					oos.writeObject(app);
-					System.out.println("Helo");
-					oos.close();
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
+//			private void save() {
+//				try {
+//					File f = new File(PATH);
+//					if (f.exists() == false) {
+//						f.createNewFile();
+//					}
+//					ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
+//					oos.writeObject(app);
+//					System.out.println("Helo");
+//					oos.close();
+//				} catch (FileNotFoundException e) {
+//					e.printStackTrace();
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+//			}
 		});
 	}
 

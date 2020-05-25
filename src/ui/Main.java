@@ -28,7 +28,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader fl = new FXMLLoader(getClass().getResource("fondo.fxml"));
-			App a = load();
+			App a = new App();
 			fl.setController(new ControllerMenu(a, primaryStage));		
 			Parent p = fl.load();
 			primaryStage.setResizable(false);
@@ -40,24 +40,24 @@ public class Main extends Application {
 	}
 		
 	
-	private App load() {
-		App a = new App();
-		try {
-			File f = new File(ControllerMenu.PATH);
-			if (f.exists()) {
-				ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
-				a = (App) ois.readObject();
-				ois.close();
-			}			
-		} catch (FileNotFoundException e) {
-
-		} catch (IOException e) {
-			
-		} catch (ClassNotFoundException e) {
-			
-		}
-		return a;
-	}
+//	private App load() {
+//		App a = new App();
+//		try {
+//			File f = new File(ControllerMenu.PATH);
+//			if (f.exists()) {
+//				ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
+//				a = (App) ois.readObject();
+//				ois.close();
+//			}			
+//		} catch (FileNotFoundException e) {
+//
+//		} catch (IOException e) {
+//			
+//		} catch (ClassNotFoundException e) {
+//			
+//		}
+//		return a;
+//	}
 
 
 	/**
