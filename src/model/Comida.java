@@ -20,6 +20,7 @@ public class Comida {
 		super();
 		this.elementos = elementos;
 		this.dia = dia;
+		caloriasTotales = contarCalorias();
 	}
 
 	public ArrayList<Elemento> getElementos() {
@@ -81,9 +82,24 @@ public class Comida {
 		}
 		return encontrado;
 	}
-
+	
 	public double contarCalorias() {
 		double cal = 0;
+		for (int i = 0; i < elementos.size(); i++) {
+			cal += elementos.get(i).getCalorias();
+		}
 		return cal;
+	}
+	
+	@Override
+	public String toString() {
+		String s = "";
+		s = "Comida [caloriasTotales: " + caloriasTotales + ", dia: " + dia + "]" +"\n \n"
+				+ "Elementos "+ "\n";
+		for (int i = 0; i < elementos.size(); i++) {
+			s += elementos.get(i) +"\n";
+		}
+		return s;
+		
 	}
 }

@@ -1,5 +1,9 @@
 package model;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.Serializable;
 
 /**
@@ -27,7 +31,7 @@ public class App implements Serializable {
 		usu = new Usuario(nombre, apellido, altura, peso, fechaNacimiento, sexo, anios);
 	}
 
-	public String[] getAllUsuario() {	
+	public String[] getAllUsuario() {
 		String[] s = null;
 		if (usu != null) {
 			s = new String[7];
@@ -45,11 +49,50 @@ public class App implements Serializable {
 	public void agregarDesayuno(Desayuno d) {
 		alimentacion.anadirDesayuno(d);
 	}
+
 	public void agregarAlmuerzo(Almuerzo a) {
 		alimentacion.anadirAlmuerzo(a);
 	}
+
 	public void agregarComida(Comida c) {
 		alimentacion.anadirComida(c);
+	}
+
+	public String reporteAlimentacion(String Bdia, String tipo) {
+		String filePath = "";
+		try {
+			String[] s = Bdia.split("/");
+			String dia = s[0]+"."+s[1]+"."+s[2];
+			File f = new File("src\\reportes\\reporte_" + dia+"_"+tipo+".txt");
+			f.createNewFile();
+			BufferedWriter bw = new BufferedWriter(new FileWriter(f));			
+			String st = crearReporte(Bdia, tipo);
+			filePath = f.getAbsolutePath();
+			bw.write(st);
+			bw.close();
+			
+			return f.getAbsolutePath();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+		return filePath;
+	}
+
+	private String crearReporte(String bdia, String tipo) {
+		String re = "";
+		if (tipo.equalsIgnoreCase("Desayuno")) {
+			re += alimentacion.buscarDesayuno(bdia);
+		}else if (tipo.equalsIgnoreCase("Almuerzo")) {
+			re += alimentacion.buscarAlmuerzo(bdia);
+		}else if (tipo.equalsIgnoreCase("Comida")) {
+			re += alimentacion.buscarComida(bdia);
+		}else if (tipo.equalsIgnoreCase("Todo")) {
+			re += alimentacion.buscarDesayuno(bdia) +"\n" +
+			alimentacion.buscarAlmuerzo(bdia) + "\n" +
+			alimentacion.buscarComida(bdia);
+		}
+		return re;
 	}
 
 }

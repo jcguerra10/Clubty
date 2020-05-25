@@ -39,7 +39,7 @@ public class Elemento extends Alimento {
 
 	@Override
 	public String toString() {
-		return "Elemento [nombre=" + nombre + ", saludable=" + saludable + "]";
+		return "\t nombre: " + nombre + ", saludable: " + (saludable == true ? "Saludable" : "No Saludable");
 	}
 
 }

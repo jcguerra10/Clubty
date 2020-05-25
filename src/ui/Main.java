@@ -29,7 +29,8 @@ public class Main extends Application {
 		try {
 			FXMLLoader fl = new FXMLLoader(getClass().getResource("fondo.fxml"));
 			fl.setController(new ControllerMenu(new App()));		
-			Parent p = fl.load();			
+			Parent p = fl.load();
+			primaryStage.setResizable(false);
 			primaryStage.setScene(new Scene(p));
 			primaryStage.show();
 		} catch (IOException e) {
