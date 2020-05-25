@@ -97,13 +97,12 @@ public class Concentracion extends Salud implements Comparable<Concentracion>, S
         }
     }
     
-        public Concentracion BuscarConcentracion(String dia) {
+    public Concentracion BuscarConcentracion(String dia) {
 
         if (fecha.compareToIgnoreCase(dia) == 0) {
 
-				derecha.insertar(nuevo);
-			}
-		} else {
+                return this;
+        } else if (fecha.compareToIgnoreCase(dia) > 0) {
 
                 return (izquierda == null) ? null : izquierda.BuscarConcentracion(dia);
         } else {
