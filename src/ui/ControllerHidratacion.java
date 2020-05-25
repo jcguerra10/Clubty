@@ -1,5 +1,6 @@
 package ui;
 
+import Thread.CoffeFill;
 import Thread.WaterFill;
 import java.io.IOException;
 import java.net.URL;
@@ -85,6 +86,17 @@ public class ControllerHidratacion implements Initializable {
 
 		}
 	}
+        
+        public void addCoffee(ActionEvent event) {
+
+            Image fondo = new Image("img/silueta-de-forma-circular.png");
+            Image Vaso = new Image("img/taza-de-cafe.png");
+            GraphicsContext gc = canvas.getGraphicsContext2D();
+            CoffeFill gf = new CoffeFill(canvas, gc, fondo, Vaso);
+            Thread t = new Thread(gf);
+            t.start();
+
+	}
 
 	public void addGlass(ActionEvent event) {
 
@@ -96,5 +108,7 @@ public class ControllerHidratacion implements Initializable {
 		wf.start();
 
 	}
+        
+   
 
 }

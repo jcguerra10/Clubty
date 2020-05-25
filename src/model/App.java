@@ -8,10 +8,6 @@ import java.io.IOException;
 import exceptions.EqualsException;
 import java.io.Serializable;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
 
 /**
  *
@@ -129,29 +125,6 @@ public class App implements Serializable {
 		}
 		return filePath;
 	}
-
-	public String pdfGenerator(String Bdia, String tipo) {
-		String filePath = "";
-		try {
-			String[] s = Bdia.split("/");
-			String dia = s[0] + "." + s[1] + "." + s[2];
-			File f = new File("src\\reportes\\reporte_" + dia + "_" + tipo + ".pdf");
-			f.createNewFile();
-			FileOutputStream archivo = new FileOutputStream(f);
-			Document doc = new Document();
-			PdfWriter.getInstance(doc, archivo);
-			doc.open();
-			doc.add(new Paragraph(crearReporte(Bdia, tipo)));
-			doc.close();
-			filePath = f.getAbsolutePath();
-		} catch (IOException e) {
-
-		} catch (DocumentException e) {
-			
-		}
-		return filePath;
-	}
-
 	private String crearReporte(String bdia, String tipo) {
 		String re = "";
 		if (tipo.equalsIgnoreCase("Desayuno")) {
