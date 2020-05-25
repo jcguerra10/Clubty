@@ -9,13 +9,10 @@ import exceptions.EmptyException;
 import exceptions.NoElementosException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -24,14 +21,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import model.Almuerzo;
 import model.App;
 import model.Comida;
 import model.Desayuno;
 import model.Elemento;
 import model.Time;
-import sun.reflect.ReflectionFactory.GetReflectionFactoryAction;
 
 public class ControllerAlimentacion implements Initializable {
 

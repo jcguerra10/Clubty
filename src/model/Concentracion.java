@@ -2,186 +2,137 @@ package model;
 
 import java.io.Serializable;
 
+import exceptions.EqualsException;
+
 /**
  *
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Concentracion extends Salud implements Comparable<Concentracion>, Serializable{
-        
-        private String motivo;
-	private int horaComienzo, horaTermina, minutoComienzo, minutoTermina;
-	private int minutos;
+public class Concentracion extends Salud implements Comparable<Concentracion>, Serializable {
+
+	private String motivo;
 	private String fecha;
-	private String noDia;
-        private Concentracion izquierda;
-        private Concentracion derecha;
+	private Concentracion izquierda;
+	private Concentracion derecha;
 
-    public Concentracion(String motivo, int horaComienzo, int horaTermina, int minutoComienzo, int minutoTermina, String fecha, String noDia, double caloriasQuemadas, int dia, int month, int year, int horas, int minutos) {
-        super(caloriasQuemadas, dia, month, year, horas, minutos);
-        this.motivo = motivo;
-        this.horaComienzo = horaComienzo;
-        this.horaTermina = horaTermina;
-        this.minutoComienzo = minutoComienzo;
-        this.minutoTermina = minutoTermina;
-        this.fecha = fecha;
-        this.noDia = noDia;
-        minutos = setMinutos(horaComienzo, minutoComienzo, horaTermina, minutoTermina);
-        this.izquierda = null;
-        this.derecha = null;
-    }
+	public Concentracion(String motivo, String fecha, double caloriasQuemadas, int dia, int month, int year, int horas,
+			int minutos) {
+		super(caloriasQuemadas, dia, month, year, horas, minutos);
+		this.motivo = motivo;
+		this.fecha = fecha;
+		this.izquierda = null;
+		this.derecha = null;
+	}
 
-        
+	public String getMotivo() {
+		return motivo;
+	}
 
-    public String getMotivo() {
-        return motivo;
-    }
+	public void setMotivo(String motivo) {
+		this.motivo = motivo;
+	}
 
-    public void setMotivo(String motivo) {
-        this.motivo = motivo;
-    }
+	public String getFecha() {
+		return fecha;
+	}
 
-    public int getHoraComienzo() {
-        return horaComienzo;
-    }
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
 
-    public void setHoraComienzo(int horaComienzo) {
-        this.horaComienzo = horaComienzo;
-    }
+	public Concentracion getIzquierda() {
+		return izquierda;
+	}
 
-    public int getHoraTermina() {
-        return horaTermina;
-    }
+	public void setIzquierda(Concentracion izquierda) {
+		this.izquierda = izquierda;
+	}
 
-    public void setHoraTermina(int horaTermina) {
-        this.horaTermina = horaTermina;
-    }
+	public Concentracion getDerecha() {
+		return derecha;
+	}
 
-    public int getMinutoComienzo() {
-        return minutoComienzo;
-    }
+	public void setDerecha(Concentracion derecha) {
+		this.derecha = derecha;
+	}
 
-    public void setMinutoComienzo(int minutoComienzo) {
-        this.minutoComienzo = minutoComienzo;
-    }
+	@Override
+	public int compareTo(Concentracion arg0) {
+		return this.getFecha().compareToIgnoreCase(arg0.getFecha());
+	}
 
-    public int getMinutoTermina() {
-        return minutoTermina;
-    }
+	private int setMinutos(int ch, int cm, int th, int tm) {
+		int total = 0;
+		if (ch >= th && cm >= tm) {
+			int hora = ch - th;
+			int minuto = cm - tm;
+			total = (hora * 60) + minuto;
+		} else {
+			// new EXCEPTION();
+		}
 
-    public void setMinutoTermina(int minutoTermina) {
-        this.minutoTermina = minutoTermina;
-    }
+		return total;
+	}
 
-    public String getFecha() {
-        return fecha;
-    }
+	public void insertar(Concentracion nuevo) throws EqualsException {
+		if (compareTo(nuevo) > 0) {
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
+			if (izquierda == null) {
 
-    public String getNoDia() {
-        return noDia;
-    }
+				izquierda = nuevo;
+			} else {
 
-    public void setNoDia(String noDia) {
-        this.noDia = noDia;
-    }
+				izquierda.insertar(nuevo);
+			}
+		} else if (compareTo(nuevo) < 0) {
 
-    public Concentracion getIzquierda() {
-        return izquierda;
-    }
+			if (derecha == null) {
 
-    public void setIzquierda(Concentracion izquierda) {
-        this.izquierda = izquierda;
-    }
+				derecha = nuevo;
+			} else {
 
-    public Concentracion getDerecha() {
-        return derecha;
-    }
+				derecha.insertar(nuevo);
+			}
+		} else {
 
-    public void setDerecha(Concentracion derecha) {
-        this.derecha = derecha;
-    }
+			throw new EqualsException("No se puede registrar sueños de un mismo dia");
+		}
+	}
 
-    @Override
-    public int compareTo(Concentracion o) {
-            if (this.getMinutos() > o.getMinutos()) {
-                    return 1;
-            } else {
-                    return 2;
-            }
-    }
-        
-    private int setMinutos(int ch, int cm, int th, int tm) {
-            int total = 0;
-            if (ch >= th && cm >= tm) {
-                    int hora = ch - th;
-                    int minuto = cm - tm;
-                    total = (hora * 60) + minuto;
-            } else {
-                    //new EXCEPTION();
-            }
+	public void mostrarPorFecha(String fecha) {
+		if (izquierda != null) {
+			izquierda.mostrarPorFecha(fecha);
+		}
+		if (this.getFecha().compareToIgnoreCase(fecha) == 0) {
+			System.out.println(this);
+		}
+		if (derecha != null) {
+			derecha.mostrarPorFecha(fecha);
+		}
+	}
 
-            return total;
-    }  
-    
-    public void insertar(Concentracion nuevo) {
-            if (compareTo(nuevo) > 0) {
+	public Concentracion buscarPorFecha(String fecha) {
+		if (getFecha().compareToIgnoreCase(fecha) == 0) {
+			return this;
+		} else if (getFecha().compareToIgnoreCase(fecha) > 0) {
+			return (izquierda == null) ? null : izquierda.buscarPorFecha(fecha);
+		} else {
+			return (derecha == null) ? null : derecha.buscarPorFecha(fecha);
+		}
+	}
 
-                    if (izquierda == null) {
+	public Concentracion buscarConcentracion(String dia) {
+		if (fecha.compareToIgnoreCase(dia) == 0) {
 
-                            izquierda = nuevo;
-                    } else {
+			return this;
+		} else if (fecha.compareToIgnoreCase(dia) > 0) {
 
-                            izquierda.insertar(nuevo);
-                    }
-            } else {
+			return (izquierda == null) ? null : izquierda.buscarConcentracion(dia);
+		} else {
 
-                    if (derecha == null) {
-
-                            derecha = nuevo;
-                    } else {
-
-                            derecha.insertar(nuevo);
-                    }
-            }
-    }
-    
-    public void mostrarPorFecha(String fecha) {
-        if (izquierda != null) {
-                izquierda.mostrarPorFecha(fecha);
-        }
-        if (this.getFecha().compareToIgnoreCase(fecha) == 0) {
-                System.out.println(this);
-        }
-        if (derecha != null) {
-                derecha.mostrarPorFecha(fecha);
-        }
-    }
-    
-    public Concentracion buscarPorFecha(String fecha) {
-        if (getFecha().compareToIgnoreCase(fecha) == 0) {
-                return this;
-        } else if (getFecha().compareToIgnoreCase(fecha) > 0) {
-                return (izquierda == null) ? null : izquierda.buscarPorFecha(fecha);
-        } else {
-                return (derecha == null) ? null : derecha.buscarPorFecha(fecha);
-        }
-    }
-    
-    public Concentracion buscarConcentracion(String dia) {
-        if (noDia.compareToIgnoreCase(dia) == 0) {
-
-                return this;
-        } else if (noDia.compareToIgnoreCase(dia) > 0) {
-
-                return (izquierda == null) ? null : izquierda.buscarConcentracion(dia);
-        } else {
-
-                return (derecha == null) ? null : derecha.buscarConcentracion(dia);
-        }
-    }
+			return (derecha == null) ? null : derecha.buscarConcentracion(dia);
+		}
+	}
 
 }

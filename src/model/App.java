@@ -93,7 +93,7 @@ public class App implements Serializable {
 		alimentacion.anadirComida(c);
 	}
 
-	public void agregarConcentracion(Concentracion c) {
+	public void agregarConcentracion(Concentracion c) throws EqualsException {
 		personal.AgregarConcentracion(c);
 	}
 
@@ -105,6 +105,11 @@ public class App implements Serializable {
 
 		return personal.buscarSuenio(day);
 	}
+        
+        public Concentracion buscarConcentracion(String day){
+            
+            return personal.buscarConcentracion(day);
+        }
 
 	public String reporteAlimentacion(String Bdia, String tipo) {
 		String filePath = "";
