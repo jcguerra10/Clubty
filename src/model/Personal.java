@@ -97,7 +97,7 @@ public class Personal {
         }
     }
     
-    public void AgregarConcentracion(Concentracion e) {
+    public void AgregarConcentracion(Concentracion e) throws EqualsException {
         if (raizC == null) {
                 raizC = e;
         } else {
