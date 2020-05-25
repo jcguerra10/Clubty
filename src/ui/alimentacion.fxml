@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="14.0" layoutY="48.0" text="ALIMENTACIÓN">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="104.0" fitWidth="103.0" layoutX="218.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/alimentacion.png" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="cbtipoAlimentacion" layoutX="161.0" layoutY="159.0" prefWidth="150.0" visibleRowCount="3" />
+      <Label layoutX="9.0" layoutY="127.0" text="Registrar Alimentación">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="163.0" text="Tipo de alimentación" />
+      <Label layoutX="9.0" layoutY="196.0" text="Elemento">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="18.0" layoutY="262.0" prefHeight="17.0" prefWidth="44.0" text="Calorias" />
+      <TextField fx:id="fNombre" layoutX="115.0" layoutY="224.0" prefHeight="25.0" prefWidth="190.0" />
+      <TextField fx:id="fCalorias" layoutX="115.0" layoutY="258.0" prefHeight="25.0" prefWidth="190.0" />
+      <Label layoutX="18.0" layoutY="295.0" text="Tipo" />
+      <Label layoutX="19.0" layoutY="329.0" text="Favorito" />
+      <ComboBox fx:id="cbtipo" layoutX="115.0" layoutY="291.0" prefHeight="25.0" prefWidth="190.0" visibleRowCount="5" />
+      <CheckBox fx:id="cbFavorito" layoutX="115.0" layoutY="329.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="56.0" />
+      <CheckBox fx:id="cbSaludable" layoutX="115.0" layoutY="357.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="56.0" />
+      <Label layoutX="19.0" layoutY="228.0" text="Nombre" />
+      <Button layoutX="85.0" layoutY="382.0" mnemonicParsing="false" onAction="#agregarAElementos" text="AGREGAR" />
+      <Button layoutX="165.0" layoutY="382.0" mnemonicParsing="false" onAction="#finalizarAgregarComida" text="FINALIZAR" />
+      <Label layoutX="6.0" layoutY="415.0" text="Buscar">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbtipoAlimentacionBusqueda" layoutX="159.0" layoutY="448.0" prefWidth="150.0" visibleRowCount="4" />
+      <Label layoutX="13.0" layoutY="452.0" text="Tipo de alimentación" />
+      <Label layoutX="13.0" layoutY="494.0" prefHeight="17.0" prefWidth="34.0" text="Dia" />
+      <DatePicker fx:id="dpDia" layoutX="158.0" layoutY="490.0" prefHeight="25.0" prefWidth="150.0" />
+      <Button layoutX="100.0" layoutY="534.0" mnemonicParsing="false" onAction="#buscar" text="Buscar y dar reporte" />
+      <Label accessibleRole="BUTTON" layoutX="17.0" layoutY="14.0" onMouseClicked="#regresar" text="&lt; regresar" />
+      <Label layoutX="19.0" layoutY="357.0" text="Saludable" />
+   </children>
+</Pane>
