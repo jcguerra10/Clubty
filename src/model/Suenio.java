@@ -1,5 +1,7 @@
 package model;
 
+import java.io.Serializable;
+
 import exceptions.EqualsException;
 
 /**
@@ -7,7 +9,7 @@ import exceptions.EqualsException;
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Suenio implements Comparable<Suenio>{
+public class Suenio implements Comparable<Suenio>, Serializable{
 
     private double rate;
     private int hora, min;

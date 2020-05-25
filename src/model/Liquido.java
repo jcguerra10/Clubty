@@ -1,11 +1,13 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Liquido {
+public class Liquido implements Serializable {
 
     private double mililitros;
     private String fecha, hora;

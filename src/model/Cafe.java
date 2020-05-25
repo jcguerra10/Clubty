@@ -1,11 +1,13 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Cafe extends Liquido implements Comparable<Cafe>{
+public class Cafe extends Liquido implements Comparable<Cafe>, Serializable{
 
     private Cafe derecha;
     private Cafe izquierda;

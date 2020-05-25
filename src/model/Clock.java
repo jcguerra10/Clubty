@@ -1,5 +1,7 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author diegoa.torres

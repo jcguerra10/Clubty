@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -7,7 +8,7 @@ import java.util.ArrayList;
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Almuerzo extends Alimento {
+public class Almuerzo extends Alimento implements Serializable {
 
 	private Almuerzo siguiente;
 	private Almuerzo anterior;

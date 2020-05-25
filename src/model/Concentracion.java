@@ -1,11 +1,13 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Concentracion extends Salud implements Comparable<Concentracion>{
+public class Concentracion extends Salud implements Comparable<Concentracion>, Serializable{
         
         private String motivo;
 	private int horaComienzo, horaTermina, minutoComienzo, minutoTermina;
