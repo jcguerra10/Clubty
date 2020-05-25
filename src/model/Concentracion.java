@@ -107,7 +107,7 @@ public class Concentracion extends Salud implements Comparable<Concentracion>, S
                 return (izquierda == null) ? null : izquierda.BuscarConcentracion(dia);
         } else {
 
-                return (derecha == null) ? null : derecha.BuscarConcentracion(dia);
+                return (derecha == null) ? null : derecha.BuscarConcentracion(dia); 
         }
     }
 
