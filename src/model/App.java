@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import exceptions.EqualsException;
 import java.io.Serializable;
 
 /**
@@ -25,6 +26,40 @@ public class App implements Serializable {
 		hidratacion = new Hidratacion();
 //		usu = new Usuario("Juan", "Guerra", 1.72, 70, "10/04/2002", 'M', 18);
 	}
+
+    public Alimentacion getAlimentacion() {
+        return alimentacion;
+    }
+
+    public void setAlimentacion(Alimentacion alimentacion) {
+        this.alimentacion = alimentacion;
+    }
+
+    public Personal getPersonal() {
+        return personal;
+    }
+
+    public void setPersonal(Personal personal) {
+        this.personal = personal;
+    }
+
+    public Hidratacion getHidratacion() {
+        return hidratacion;
+    }
+
+    public void setHidratacion(Hidratacion hidratacion) {
+        this.hidratacion = hidratacion;
+    }
+
+    public Usuario getUsu() {
+        return usu;
+    }
+
+    public void setUsu(Usuario usu) {
+        this.usu = usu;
+    }
+        
+        
 
 	public void nuevoUsuario(String nombre, String apellido, double altura, double peso, String fechaNacimiento,
 			String sexo, int anios) {
@@ -57,6 +92,23 @@ public class App implements Serializable {
 	public void agregarComida(Comida c) {
 		alimentacion.anadirComida(c);
 	}
+        
+        public void agregarConcentracion(Concentracion c){
+                personal.AgregarConcentracion(c);
+        }
+        
+        public void agregarSuenio(Suenio s) throws EqualsException{
+                personal.AgregarSuenio(s);
+        }
+        
+        
+        
+        
+        
+        public Suenio buscarSuenio(String day){
+            
+            return personal.buscarSuenio(day);
+        }
 
 	public String reporteAlimentacion(String Bdia, String tipo) {
 		String filePath = "";

@@ -67,7 +67,57 @@ public class Agua extends Liquido implements Comparable<Agua>{
                 derecha.insertar(c);
             }
         }
-    }    
+    }   
+    
+    public boolean esHoja(){
+        
+        return izquierda == null && derecha == null;
+    }
+    
+    public Agua darMenor(){
+        return (izquierda == null) ? this : izquierda.darMenor();
+    }
+
+    
+    public Agua deleteAgua(String numVaso){
+        
+        if (esHoja()) {
+            
+            return null;
+        }if (numVaso.compareToIgnoreCase(noVaso) == 0) {
+            
+            if (izquierda == null) {
+            
+                return derecha;
+            }if (derecha == null) {
+                
+                return izquierda;
+            }
+            Agua sucesor = derecha.darMenor();
+            derecha = derecha.deleteAgua(sucesor.getNoVaso());
+            sucesor.izquierda =izquierda;
+            sucesor.derecha = derecha;
+            return sucesor;
+        }else if (noVaso.compareToIgnoreCase(numVaso)>0) {
+            
+            izquierda = izquierda.deleteAgua(numVaso);
+        }else            
+            derecha = derecha.deleteAgua(numVaso);
+        return this;
+        
+    }
+    
+    public double contarAgua() {
+            double tot = 0;
+            if (getIzquierda()!= null) {
+                    getIzquierda().contarAgua();
+            }
+            tot += getMililitros();
+            if (getDerecha() != null) {
+                    getDerecha().contarAgua();
+            }
+            return tot;
+    }
     
     
 }

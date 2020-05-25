@@ -49,6 +49,6 @@
             <Image url="@../img/plastic.png" />
          </image>
       </ImageView>
-      <Canvas fx:id="canvas" height="246.0" layoutX="4.0" layoutY="160.0" width="328.0" />
+      <Canvas fx:id="canvas" height="246.0" layoutY="160.0" width="335.0" />
    </children>
 </Pane>
