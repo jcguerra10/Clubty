@@ -33,11 +33,11 @@ public class CoffeFill implements Runnable {
     @Override
     public void run() {
         
-        double dir =- 10;
+        double dir =- 1;
         boolean parar = false;
         double x;
 
-        for ( x = 10; !parar; x+=dir) {
+        for ( x = 0; !parar; x+=dir) {
 
             try {
                 //ImageView iv = new ImageView(vaso);
@@ -46,9 +46,9 @@ public class CoffeFill implements Runnable {
                 
                 
                 gc.drawImage(fondo, 90, 180, 126, x);              
-                Thread.sleep(300);
-                if(x>10)dir=-10;System.out.println(x);
-                if(x<80)dir=+10; System.out.println(x);
+                Thread.sleep(10);
+                if(x>1)dir=-1;System.out.println(x);
+                if(x<80)dir=+1; System.out.println(x);
                 if(x==70)parar=true; System.out.println(parar);
               //  if(x==-70)parar = true;
                 

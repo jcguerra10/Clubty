@@ -30,7 +30,7 @@ public class WaterFill extends Thread{
     @Override
     public void run() {
         
-        double dir =- 10;
+        double dir =- 1;
         boolean parar = false;
         double x;
        
@@ -38,14 +38,14 @@ public class WaterFill extends Thread{
 
             try {
                 
-                gc.drawImage(vaso, 80, 30, 170, 180);
+                gc.drawImage(vaso, 83, 30, 170, 180);
                 
-                //gc.drawImage(fondo, 68, 179, 100, 100);                
-                gc.drawImage(fill, 132, 200, 58, x);
-                gc.drawImage(vaso, 80, 30, 170, 180);
-                Thread.sleep(300);
-                if(x>-10)dir=-10;
-                if(x<-118)dir=+10;
+//                gc.drawImage(fondo, 68, 179, 100, 100);                
+                gc.drawImage(fill, 135, 200, 58, x);
+                gc.drawImage(vaso, 83, 30, 170, 180);
+                Thread.sleep(20);
+                if(x>-1)dir=-1;
+                if(x<-118)dir=+1;
                 if(x==-118)parar = true;
                 
             } catch (InterruptedException e) {

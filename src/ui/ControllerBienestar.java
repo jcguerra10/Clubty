@@ -454,7 +454,7 @@ public class ControllerBienestar implements Initializable {
             });
             
         }
-        
+                
         public  void searchConcentracion(ActionEvent event){
             
             
