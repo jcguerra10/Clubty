@@ -9,38 +9,47 @@ import java.io.Serializable;
  */
 public class Liquido implements Serializable {
 
-    private double mililitros;
-    private String fecha, hora;
+	protected int noVasos;
+	protected double mililitros;
+	protected String fecha, hora;
 
-    public Liquido(double mililitros, String fecha, String hora) {
-        this.mililitros = mililitros;
-        this.fecha = fecha;
-        this.hora = hora;
-    }
+	public Liquido(int noVasos, String fecha, String hora) {
+		super();
+		this.noVasos = noVasos;
+		this.fecha = fecha;
+		this.hora = hora;
+	}
 
-    public double getMililitros() {
-        return mililitros;
-    }
+	protected int getNoVasos() {
+		return noVasos;
+	}
 
-    public void setMililitros(double mililitros) {
-        this.mililitros = mililitros;
-    }
+	protected void setNoVasos(int noVasos) {
+		this.noVasos = noVasos;
+	}
 
-    public String getFecha() {
-        return fecha;
-    }
+	protected double getMililitros() {
+		return mililitros;
+	}
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
+	protected void setMililitros(double mililitros) {
+		this.mililitros = mililitros;
+	}
 
-    public String getHora() {
-        return hora;
-    }
+	protected String getFecha() {
+		return fecha;
+	}
 
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-    
-    
+	protected void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+
+	protected String getHora() {
+		return hora;
+	}
+
+	protected void setHora(String hora) {
+		this.hora = hora;
+	}
+
 }

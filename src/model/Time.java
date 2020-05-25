@@ -10,6 +10,8 @@ public class Time implements Serializable {
 	private static int day;
 	private static int month;
 	private static int year;
+	private static int hour;
+	private static int minute;
 
 	public Time() {
 		c = new GregorianCalendar();
@@ -17,6 +19,16 @@ public class Time implements Serializable {
 		Time.day = setDay();
 		Time.month = setMonth();
 		Time.year = setYear();
+		Time.hour = setHour();
+		Time.minute = setMinute();
+	}
+
+	private static int setMinute() {
+		return c.get(Calendar.MINUTE);
+	}
+
+	private static int setHour() {
+		return c.get(Calendar.HOUR_OF_DAY);
 	}
 
 	private static int setDay() {
@@ -47,6 +59,11 @@ public class Time implements Serializable {
 			actualDay = day + "/0" + (month+1) + "/" + year;
 		}
 		return actualDay;
+	}
+	
+	public static String getHour() {
+		refresh();
+		return hour +":"+minute;		
 	}
 
 }

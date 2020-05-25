@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -66,4 +67,12 @@ public class Hidratacion implements Serializable {
             primerAgua.insertar(newAgua);
         }
     }
+
+	public ArrayList<Agua> todosAguaDia(String day) {
+		return null;
+	}
+	
+	public ArrayList<Cafe> todosCafeDia(String day) {
+		return null;
+	}
 }

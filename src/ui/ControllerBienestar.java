@@ -297,6 +297,8 @@ public class ControllerBienestar implements Initializable {
 		});
 
 	}
+	
+	
 
 	public void addConcentracion(ActionEvent event) {
 

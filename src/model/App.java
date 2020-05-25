@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import exceptions.EqualsException;
 import java.io.Serializable;
-
+import java.util.ArrayList;
 
 /**
  *
@@ -104,11 +104,11 @@ public class App implements Serializable {
 
 		return personal.buscarSuenio(day);
 	}
-        
-        public Concentracion buscarConcentracion(String day){
-            
-            return personal.buscarConcentracion(day);
-        }
+
+	public Concentracion buscarConcentracion(String day) {
+
+		return personal.buscarConcentracion(day);
+	}
 
 	public String reporteAlimentacion(String Bdia, String tipo) {
 		String filePath = "";
@@ -129,6 +129,7 @@ public class App implements Serializable {
 		}
 		return filePath;
 	}
+
 	private String crearReporte(String bdia, String tipo) {
 		String re = "";
 		if (tipo.equalsIgnoreCase("Desayuno")) {
@@ -142,6 +143,67 @@ public class App implements Serializable {
 					+ alimentacion.buscarComida(bdia);
 		}
 		return re;
+	}
+
+	public void agregarCafe(int noVasos, String fecha, String hora) {
+		Cafe newCafe = new Cafe(noVasos, fecha, hora);
+		hidratacion.agregarCafe(newCafe);
+	}
+
+	public void agregarAgua(int noVasos, String fecha, String hora) {
+		Agua newAgua = new Agua(noVasos, fecha, hora);
+		hidratacion.agregarAgua(newAgua);
+	}
+	
+	public String reporteAgua(String day) {
+		String filePath = "";
+		try {
+			String[] s = day.split("/");
+			String dia = s[0] + "." + s[1] + "." + s[2];
+			File f = new File("src\\reportes\\reporte_"+dia+".txt");
+			filePath = f.getAbsolutePath();
+			f.createNewFile();
+			BufferedWriter bw = new BufferedWriter(new FileWriter(f));
+			bw.write(crearReporteAgua(day));
+			bw.close();
+		} catch (IOException e) {
+			
+		}
+		return filePath;
+	}
+	public String crearReporteAgua(String day) {
+		ArrayList<Agua> todos = hidratacion.todosAguaDia(day);
+		String ex = "";
+		ex += "REPORTE DIA " + 	day +"\n";
+		for (int i = 0; i < todos.size(); i++) {
+			ex += "\t"+todos.get(i) +"\n";
+		}
+		return ex;
+	}
+	public String reporteCafe(String day) {
+		String filePath = "";
+		try {
+			String[] s = day.split("/");
+			String dia = s[0] + "." + s[1] + "." + s[2];
+			File f = new File("src\\reportes\\reporte_"+dia+".txt");
+			filePath = f.getAbsolutePath();
+			f.createNewFile();
+			BufferedWriter bw = new BufferedWriter(new FileWriter(f));
+			bw.write(crearReporteCafe(day));
+			bw.close();
+		} catch (IOException e) {
+			
+		}
+		return filePath;
+	}
+	public String crearReporteCafe(String day) {
+		ArrayList<Cafe> todos = hidratacion.todosCafeDia(day);
+		String ex = "";
+		ex += "REPORTE DIA " + 	day +"\n";
+		for (int i = 0; i < todos.size(); i++) {
+			ex += "\t"+todos.get(i) +"\n";
+		}
+		return ex;
 	}
 
 }
