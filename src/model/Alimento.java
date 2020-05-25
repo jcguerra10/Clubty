@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author diegoa.torres
@@ -7,39 +9,47 @@ package model;
  */
 public class Alimento {
 
-	private double calorias;
-	private String tipo;
-	private boolean favorito;
+	protected ArrayList<Elemento> elementos;
+	protected double caloriasTotales;
+	protected String dia;
 
-    public Alimento(double calorias, String tipo, boolean favorito) {
-        this.calorias = calorias;
-        this.tipo = tipo;
-        this.favorito = favorito;
-    }
+	public Alimento(ArrayList<Elemento> elementos, String dia) {
+		super();
+		this.elementos = elementos;
+		this.caloriasTotales = contarCalorias();
+		this.dia = dia;
+	}
+
+	public ArrayList<Elemento> getElementos() {
+		return elementos;
+	}
+
+	public void setElementos(ArrayList<Elemento> elementos) {
+		this.elementos = elementos;
+	}
+
+	public double getCaloriasTotales() {
+		return caloriasTotales;
+	}
+
+	public void setCaloriasTotales(double caloriasTotales) {
+		this.caloriasTotales = caloriasTotales;
+	}
+
+	public String getDia() {
+		return dia;
+	}
+
+	public void setDia(String dia) {
+		this.dia = dia;
+	}
 	
-        
-	public double getCalorias() {
-		return calorias;
+	protected double contarCalorias() {
+		double cal = 0;
+		for (int i = 0; i < elementos.size(); i++) {
+			cal += elementos.get(i).getCalorias();
+		}
+		return cal;
 	}
 
-	public void setCalorias(double calorias) {
-		this.calorias = calorias;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
-	public boolean isFavorito() {
-		return favorito;
-	}
-
-	public void setFavorito(boolean favorito) {
-		this.favorito = favorito;
-	}
-	
 }

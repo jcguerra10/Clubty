@@ -7,28 +7,13 @@ import java.util.ArrayList;
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Almuerzo {
-
-	private ArrayList<Elemento> elementos;
+public class Almuerzo extends Alimento {
 
 	private Almuerzo siguiente;
 	private Almuerzo anterior;
-	private double caloriasTotales;
-	private String dia;	
 
 	public Almuerzo(ArrayList<Elemento> elementos, String dia) {
-		super();
-		this.elementos = elementos;
-		this.dia = dia;
-		caloriasTotales = contarCalorias();
-	}
-
-	public ArrayList<Elemento> getElementos() {
-		return elementos;
-	}
-
-	public void setElementos(ArrayList<Elemento> elementos) {
-		this.elementos = elementos;
+		super(elementos, dia);
 	}
 
 	public Almuerzo getSiguiente() {
@@ -45,22 +30,6 @@ public class Almuerzo {
 
 	public void setAnterior(Almuerzo anterior) {
 		this.anterior = anterior;
-	}
-
-	public double getCaloriasTotales() {
-		return caloriasTotales;
-	}
-
-	public void setCaloriasTotales(double caloriasTotales) {
-		this.caloriasTotales = caloriasTotales;
-	}
-
-	public String getDia() {
-		return dia;
-	}
-
-	public void setDia(String dia) {
-		this.dia = dia;
 	}
 
 	public void anadirElemento(Elemento e) {
@@ -85,14 +54,6 @@ public class Almuerzo {
 			}
 		}
 		return encontrado;
-	}
-	
-	public double contarCalorias() {
-		double cal = 0;
-		for (int i = 0; i < elementos.size(); i++) {
-			cal += elementos.get(i).getCalorias();
-		}
-		return cal;
 	}
 	
 	@Override

@@ -8,28 +8,13 @@ import java.util.Calendar;
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Desayuno {
-
-	private ArrayList<Elemento> elementos;
+public class Desayuno extends Alimento {	
 
 	private Desayuno siguiente;
-	private Desayuno anterior;
-	private double caloriasTotales;
-	private String dia;		
+	private Desayuno anterior;			
 
 	public Desayuno(ArrayList<Elemento> elementos, String dia) {
-		super();
-		this.elementos = elementos;
-		this.dia = dia;
-		caloriasTotales = contarCalorias();
-	}
-
-	public ArrayList<Elemento> getElementos() {
-		return elementos;
-	}
-
-	public void setElementos(ArrayList<Elemento> elementos) {
-		this.elementos = elementos;
+		super(elementos, dia);	
 	}
 
 	public Desayuno getSiguiente() {
@@ -46,22 +31,6 @@ public class Desayuno {
 
 	public void setAnterior(Desayuno anterior) {
 		this.anterior = anterior;
-	}
-
-	public double getCaloriasTotales() {
-		return caloriasTotales;
-	}
-
-	public void setCaloriasTotales(double caloriasTotales) {
-		this.caloriasTotales = caloriasTotales;
-	}
-
-	public String getDia() {
-		return dia;
-	}
-
-	public void setDia(String dia) {
-		this.dia = dia;
 	}
 
 	public void anadirElemento(Elemento e) {
@@ -86,14 +55,6 @@ public class Desayuno {
 			}
 		}
 		return encontrado;
-	}
-
-	public double contarCalorias() {
-		double cal = 0;
-		for (int i = 0; i < elementos.size(); i++) {
-			cal += elementos.get(i).getCalorias();
-		}
-		return cal;
 	}
 
 	@Override

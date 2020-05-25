@@ -7,28 +7,13 @@ import java.util.ArrayList;
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Comida {
-
-	private ArrayList<Elemento> elementos;
+public class Comida extends Alimento {
 
 	private Comida siguiente;
 	private Comida anterior;
-	private double caloriasTotales;
-	private String dia;
 
 	public Comida(ArrayList<Elemento> elementos, String dia) {
-		super();
-		this.elementos = elementos;
-		this.dia = dia;
-		caloriasTotales = contarCalorias();
-	}
-
-	public ArrayList<Elemento> getElementos() {
-		return elementos;
-	}
-
-	public void setElementos(ArrayList<Elemento> elementos) {
-		this.elementos = elementos;
+		super(elementos, dia);
 	}
 
 	public Comida getSiguiente() {
@@ -45,22 +30,6 @@ public class Comida {
 
 	public void setAnterior(Comida anterior) {
 		this.anterior = anterior;
-	}
-
-	public double getCaloriasTotales() {
-		return caloriasTotales;
-	}
-
-	public void setCaloriasTotales(double caloriasTotales) {
-		this.caloriasTotales = caloriasTotales;
-	}
-
-	public String getDia() {
-		return dia;
-	}
-
-	public void setDia(String dia) {
-		this.dia = dia;
 	}
 
 	public Elemento BuscarElementos(String nombre) {
@@ -82,24 +51,15 @@ public class Comida {
 		}
 		return encontrado;
 	}
-	
-	public double contarCalorias() {
-		double cal = 0;
-		for (int i = 0; i < elementos.size(); i++) {
-			cal += elementos.get(i).getCalorias();
-		}
-		return cal;
-	}
-	
+
 	@Override
 	public String toString() {
 		String s = "";
-		s = "Comida [caloriasTotales: " + caloriasTotales + ", dia: " + dia + "]" +"\n \n"
-				+ "Elementos "+ "\n";
+		s = "Comida [caloriasTotales: " + caloriasTotales + ", dia: " + dia + "]" + "\n \n" + "Elementos " + "\n";
 		for (int i = 0; i < elementos.size(); i++) {
-			s += elementos.get(i) +"\n";
+			s += elementos.get(i) + "\n";
 		}
 		return s;
-		
+
 	}
 }
