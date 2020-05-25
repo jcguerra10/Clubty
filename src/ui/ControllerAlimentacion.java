@@ -146,7 +146,7 @@ public class ControllerAlimentacion implements Initializable {
 			String bTipo = cbtipoAlimentacionBusqueda.getValue();
 			String bDia = dpDia.getEditor().getText();			
 			
-			String s = app.reporteAlimentacion(bDia, bTipo);
+			String s = app.pdfGenerator(bDia, bTipo);
 			
 			String re = aviso3(bTipo);
 			if (re.equalsIgnoreCase("Aceptar")) {
