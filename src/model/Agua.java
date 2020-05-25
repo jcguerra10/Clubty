@@ -1,11 +1,13 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Agua extends Liquido implements Comparable<Agua>{
+public class Agua extends Liquido implements Comparable<Agua>, Serializable{
 
     private Agua derecha;
     private Agua izquierda;

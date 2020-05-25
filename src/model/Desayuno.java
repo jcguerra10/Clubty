@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -8,7 +9,7 @@ import java.util.Calendar;
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Desayuno extends Alimento {	
+public class Desayuno extends Alimento implements Serializable{	
 
 	private Desayuno siguiente;
 	private Desayuno anterior;			

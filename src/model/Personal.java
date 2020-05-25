@@ -1,5 +1,7 @@
 package model;
 
+import java.io.Serializable;
+
 import exceptions.EqualsException;
 
 /**
@@ -7,7 +9,7 @@ import exceptions.EqualsException;
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Personal {
+public class Personal implements Serializable {
     
     private Ejercicio raizE;
     private Suenio raizS;

@@ -1,11 +1,13 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Ejercicio extends Salud implements Comparable<Ejercicio>{
+public class Ejercicio extends Salud implements Comparable<Ejercicio>, Serializable{
 
     private double distancia;
     private String target, tipoEjercicio;

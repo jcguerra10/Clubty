@@ -8,14 +8,9 @@
 
 <Pane fx:id="mainPane" prefHeight="585.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="137.0" text="Bienvenido :">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="30.0" prefWidth="312.0" text="BIENVENIDO">
          <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="149.0" layoutY="14.0" prefHeight="30.0" prefWidth="185.0">
-         <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="25.0" />
          </font>
       </Label>
       <ImageView fitHeight="61.0" fitWidth="48.0" layoutX="144.0" layoutY="508.0" pickOnBounds="true" preserveRatio="true">
@@ -79,8 +74,20 @@
             <Font name="System Bold" size="9.0" />
          </font>
       </Label>
-      <Label fx:id="nom" layoutX="128.0" layoutY="80.0" prefHeight="17.0" prefWidth="196.0" text="Nombre" />
-      <Label fx:id="ape" layoutX="128.0" layoutY="97.0" prefHeight="17.0" prefWidth="198.0" text="apellido" />
-      <Label fx:id="eda" layoutX="128.0" layoutY="114.0" prefHeight="17.0" prefWidth="202.0" text="edad" />
+      <Label layoutX="131.0" layoutY="71.0" prefHeight="30.0" prefWidth="84.0" text="Nombre:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="131.0" layoutY="101.0" prefHeight="13.0" prefWidth="99.0" text="Apellido:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="131.0" layoutY="121.0" prefHeight="17.0" prefWidth="84.0" text="Edad:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="nom" layoutX="216.0" layoutY="78.0" prefHeight="17.0" prefWidth="107.0" />
+      <Label fx:id="ape" layoutX="198.0" layoutY="103.0" prefHeight="17.0" prefWidth="115.0" />
+      <Label fx:id="eda" layoutX="178.0" layoutY="123.0" prefHeight="17.0" prefWidth="115.0" />
    </children>
 </Pane>

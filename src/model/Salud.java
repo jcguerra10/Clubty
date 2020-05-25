@@ -1,11 +1,13 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Salud {
+public class Salud implements Serializable {
     
     private double caloriasQuemadas;
     private int dia, month, year, horas, minutos;

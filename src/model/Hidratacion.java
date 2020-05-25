@@ -1,11 +1,13 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author diegoa.torres
  * @author juanc.guerra
  */
-public class Hidratacion {
+public class Hidratacion implements Serializable {
 
     private Agua primerAgua;
     private Cafe primerCafe;
