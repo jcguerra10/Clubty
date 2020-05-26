@@ -127,4 +127,14 @@ public class Ejercicio extends Salud implements Comparable<Ejercicio>, Serializa
         return total;
     }
 
+	@Override
+	public String toString() {
+		String re = "";
+		re += "Ejercicio [distancia: " + distancia + ", target: " + target + ", tipoEjercicio: " + tipoEjercicio
+				+ ", favorito: " + (favorito == true ? "Favorito":"No Favorito") + " ]";
+		return re;
+	}
+    
+    
+   
 }
