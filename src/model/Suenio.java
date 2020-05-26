@@ -120,5 +120,10 @@ public class Suenio implements Comparable<Suenio>, Serializable{
                 return (derecha == null) ? null : derecha.BuscarSuenio(dia);
         }
     }
-    
+
+	@Override
+	public String toString() {
+		return "Suenio [rate: " + rate + ", Tiempo: " + hora + ":" + min + ", Dia: " + noDia + "]";
+	}
+       
 }

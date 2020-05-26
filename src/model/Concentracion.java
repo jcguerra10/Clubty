@@ -115,4 +115,9 @@ public class Concentracion extends Salud implements Comparable<Concentracion>, S
         }
     }
 
+	@Override
+	public String toString() {
+		return "Concentracion [motivo: " + motivo + ", fecha: " + fecha + "]";
+	}
+    
 }
