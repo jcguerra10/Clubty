@@ -19,12 +19,14 @@ public class CoffeFill implements Runnable {
     Image fondo;
     Image vaso;
     Image f;    
+    int num;
 
-    public CoffeFill(Canvas canvas, GraphicsContext gc, Image fondo, Image vaso) {
+    public CoffeFill(Canvas canvas, GraphicsContext gc, Image fondo, Image vaso, int num) {
         this.canvas = canvas;
         this.gc = gc;
         this.fondo = fondo;
         this.vaso = vaso;
+        this.num=num;
         
     }
     
@@ -46,10 +48,10 @@ public class CoffeFill implements Runnable {
                 
                 
                 gc.drawImage(fondo, 90, 180, 126, x);              
-                Thread.sleep(10);
-                if(x>1)dir=-1;System.out.println(x);
-                if(x<80)dir=+1; System.out.println(x);
-                if(x==70)parar=true; System.out.println(parar);
+                Thread.sleep(num*10);
+                if(x>1)dir=-1;;
+                if(x<80)dir=+1; ;
+                if(x==70)parar=true;;
               //  if(x==-70)parar = true;
                 
             } catch (InterruptedException e) {
@@ -57,7 +59,6 @@ public class CoffeFill implements Runnable {
             }
         }
         
-        System.out.println("OUT");
     } 
     
 }

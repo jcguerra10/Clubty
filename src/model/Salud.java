@@ -68,4 +68,11 @@ public class Salud implements Serializable {
     public void setMinutos(int minutos) {
         this.minutos = minutos;
     }
+
+    @Override
+    public String toString() {
+        return "Salud{" + "rate=" + rate + ", dia=" + dia + ", month=" + month + ", year=" + year + ", horas=" + horas + ", minutos=" + minutos + '}';
+    }
+    
+    
 }

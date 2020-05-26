@@ -103,10 +103,11 @@ public class ControllerHidratacion implements Initializable {
 
 	public void addCoffee(ActionEvent event) {
 		App a = cm.getApp();
+                GraphicsContext gc = canvas.getGraphicsContext2D();
+                gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 		Image fondo = new Image("img/silueta-de-forma-circular.png");
-		Image Vaso = new Image("img/taza-de-cafe.png");
-		GraphicsContext gc = canvas.getGraphicsContext2D();
-		CoffeFill gf = new CoffeFill(canvas, gc, fondo, Vaso);
+		Image Vaso = new Image("img/taza-de-cafe.png");		
+		CoffeFill gf = new CoffeFill(canvas, gc, fondo, Vaso, Integer.parseInt(vasos.getText()));
 		Thread t = new Thread(gf);
 		t.start();
 		try {
@@ -123,10 +124,11 @@ public class ControllerHidratacion implements Initializable {
 	public void addGlass(ActionEvent event) {
 		App a = cm.getApp();
 		GraphicsContext gc = canvas.getGraphicsContext2D();
+                gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 		Image glass = iv.getImage();
 		Image fill = new Image("img/fill.png");
 		Image fondo = new Image("/img/fondo.png");
-		WaterFill wf = new WaterFill(canvas, gc, fondo, glass, fill);
+		WaterFill wf = new WaterFill(canvas, gc, fondo, glass, fill, Integer.parseInt(vasos.getText()));
 		wf.start();
 		try {
 			if (vasos.getLength() == 0) {

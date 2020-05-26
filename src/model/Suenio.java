@@ -123,7 +123,7 @@ public class Suenio implements Comparable<Suenio>, Serializable{
 
 	@Override
 	public String toString() {
-		return "Suenio [rate: " + rate + ", Tiempo: " + hora + ":" + min + ", Dia: " + noDia + "]";
+		return "Suenio [rate: " + rate + ", Tiempo: " + hora + ":" + min + ", Dia: " + noDia + super.toString() +"]";
 	}
        
 }

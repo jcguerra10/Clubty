@@ -48,17 +48,6 @@ public class Personal implements Serializable {
     
     
     
-    public Ejercicio BuscarEjercicios(String nom) {
-
-        if (raizE.getTipoEjercicio().equalsIgnoreCase(nom)) {
-
-                return raizE;
-        } else {
-
-                return raizE.BuscarEjercicio(nom);
-        }
-    }
-    
     public double caloriaQuemadas() {
         double total = 0;
         if (raizE != null) {
@@ -69,7 +58,7 @@ public class Personal implements Serializable {
         return total;
     }
     
-    public void AgregarEjercicio(Ejercicio e) {
+    public void AgregarEjercicio(Ejercicio e) throws EqualsException {
 
         if (raizE == null) {
 
@@ -77,14 +66,6 @@ public class Personal implements Serializable {
         } else {
 
                 raizE.insertar(e);
-        }
-    }
-    
-    public Suenio buscarSuenio(String dia) {        
-        if (raizS.getNoDia().equalsIgnoreCase(dia)) {
-                return raizS;
-        } else {
-                return raizS.BuscarSuenio(dia);
         }
     }
     
@@ -105,7 +86,15 @@ public class Personal implements Serializable {
         } else {
             raizC.insertar(e);
         }
-    }    
+    }  
+    
+    public Suenio buscarSuenio(String dia) {        
+        if (raizS.getNoDia().equalsIgnoreCase(dia)) {
+                return raizS;
+        } else {
+                return raizS.BuscarSuenio(dia);
+        }
+    }
         
     public Concentracion buscarConcentracion(String dia) {
         if (raizC.getFecha().equalsIgnoreCase(dia)) {
@@ -113,5 +102,16 @@ public class Personal implements Serializable {
         } else {
                 return raizC.BuscarConcentracion(dia);
         }
-    }    
+    }  
+
+    public Ejercicio BuscarEjercicios(String nom) {
+        System.out.println(nom + " " + raizE.NoDia);
+        if (raizE.NoDia.equalsIgnoreCase(nom)) {
+
+                return raizE;
+        } else {
+
+                return raizE.BuscarEjercicio(nom);
+        }
+    }
 }

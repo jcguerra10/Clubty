@@ -99,6 +99,11 @@ public class App implements Serializable {
 	public void agregarSuenio(Suenio s) throws EqualsException {
 		personal.AgregarSuenio(s);
 	}
+        
+        public void agregarEjercicio(Ejercicio e) throws EqualsException{
+            
+            personal.AgregarEjercicio(e);
+        }
 
 	public Suenio buscarSuenio(String day) {
                                 
@@ -109,6 +114,11 @@ public class App implements Serializable {
 
 		return personal.buscarConcentracion(day);
 	}
+        
+        public Ejercicio buscarEjercicio(String day){
+            
+            return personal.BuscarEjercicios(day);
+        }
 
 	public String reporteAlimentacion(String Bdia, String tipo) {
 		String filePath = "";

@@ -1,5 +1,6 @@
 package model;
 
+import exceptions.EqualsException;
 import java.io.Serializable;
 
 /**
@@ -9,15 +10,15 @@ import java.io.Serializable;
  */
 public class Ejercicio extends Salud implements Comparable<Ejercicio>, Serializable{
 
-    private double distancia;
     private String target, tipoEjercicio;
     private boolean  favorito;
     private Ejercicio derecha;
     private Ejercicio izquierda;
+    public  String NoDia;
 
-    public Ejercicio(double distancia, String target, String tipoEjercicio, boolean favorito, Ejercicio anterior, Ejercicio siguiente, double caloriasQuemadas, int dia, int month, int year, int horas, int minutos) {
-        super(caloriasQuemadas, dia, month, year, horas, minutos);
-        this.distancia = distancia;
+    public Ejercicio(String target, String tipoEjercicio, boolean favorito, double rate, int dia, int month, int year, int horas, int minutos) {
+        super(rate, dia, month, year, horas, minutos);
+        NoDia = dia+"/"+month+"/"+year;
         this.target = target;
         this.tipoEjercicio = tipoEjercicio;
         this.favorito = favorito;
@@ -25,13 +26,6 @@ public class Ejercicio extends Salud implements Comparable<Ejercicio>, Serializa
         this.izquierda = null;
     }
 
-    public double getDistancia() {
-        return distancia;
-    }
-
-    public void setDistancia(double distancia) {
-        this.distancia = distancia;
-    }
 
     public String getTarget() {
         return target;
@@ -73,45 +67,49 @@ public class Ejercicio extends Salud implements Comparable<Ejercicio>, Serializa
         this.izquierda = izquierda;
     }
 
-        @Override
-    public int compareTo(Ejercicio o) {
-        return this.getTipoEjercicio().compareToIgnoreCase(o.getTipoEjercicio());
+    @Override
+    public int compareTo(Ejercicio arg0) {
+            return this.NoDia.compareToIgnoreCase(arg0.NoDia);
     }
 
-    public  void insertar(Ejercicio nuevo){
-        
+    public void insertar(Ejercicio nuevo) throws EqualsException{
+
+
         if (compareTo(nuevo) > 0) {
-            
+
             if (izquierda == null) {
-                
-                izquierda = nuevo; 
-            }else{
-                
+
+                izquierda = nuevo;
+            } else {
+
                 izquierda.insertar(nuevo);
+            }
+        } else if(compareTo(nuevo) < 0){
+
+            if (derecha == null) {
+
+                derecha = nuevo;
+            } else {
+
+                derecha.insertar(nuevo);
             }
         }else{
             
-            if (derecha == null) {
-                
-                derecha = nuevo;
-            }else{
-                
-                derecha.insertar(nuevo);
-            }
+            throw new EqualsException("No se puede registrar sueños de un mismo dia");
         }
     }
     
-    public Ejercicio BuscarEjercicio(String nombreEjercicio){
-        
-        if (tipoEjercicio.compareToIgnoreCase(nombreEjercicio)==0) {
-            
-            return this;
-        }else if (tipoEjercicio.compareToIgnoreCase(nombreEjercicio)>0) {
-            
-            return (izquierda == null) ? null : izquierda.BuscarEjercicio(nombreEjercicio);
-        }else{
-            
-            return (derecha == null) ? null : derecha.BuscarEjercicio(nombreEjercicio);
+    public Ejercicio BuscarEjercicio(String dia) {
+
+        if (NoDia.compareToIgnoreCase(dia) == 0) {
+
+                return this;
+        } else if (NoDia.compareToIgnoreCase(dia) > 0) {
+
+                return (izquierda == null) ? null : izquierda.BuscarEjercicio(dia);
+        } else {
+
+                return (derecha == null) ? null : derecha.BuscarEjercicio(dia);
         }
     }
     
@@ -130,8 +128,8 @@ public class Ejercicio extends Salud implements Comparable<Ejercicio>, Serializa
 	@Override
 	public String toString() {
 		String re = "";
-		re += "Ejercicio [distancia: " + distancia + ", target: " + target + ", tipoEjercicio: " + tipoEjercicio
-				+ ", favorito: " + (favorito == true ? "Favorito":"No Favorito") + " ]";
+		re += "Ejercicio [target: " + target + ", tipoEjercicio: " + tipoEjercicio
+				+ ", favorito: " + favorito + " " + super.toString() +" ]";
 		return re;
 	}
     

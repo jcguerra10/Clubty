@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Slider;
@@ -24,6 +25,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import model.App;
 import model.Concentracion;
+import model.Ejercicio;
 import model.Suenio;
 
 public class ControllerBienestar implements Initializable {
@@ -67,6 +69,9 @@ public class ControllerBienestar implements Initializable {
 	TextField motivo;
 	@FXML
 	TextField motivo1;
+        @FXML
+	CheckBox favorite;
+        
 
 	ObservableList<String> ol = FXCollections.observableArrayList("Suenio", "Concentracion", "Ejercicio");
 
@@ -122,6 +127,7 @@ public class ControllerBienestar implements Initializable {
 			try {
 				Pane pane = cm.getMainPane();
 				FXMLLoader fl = new FXMLLoader(getClass().getResource("ejercicio.fxml"));
+                                fl.setController(this);
 				Parent p = fl.load();
 				pane.getChildren().clear();
 				pane.getChildren().add(p);
@@ -167,7 +173,7 @@ public class ControllerBienestar implements Initializable {
 	}
 
 	public void tellme() {
-		System.out.println(sl.getValue() + "");
+		System.out.println(favorite.isSelected()+ "");
 
 	}
 
@@ -455,9 +461,21 @@ public class ControllerBienestar implements Initializable {
 			alert.showAndWait();
 		} else {
 
-			String dia = ld.getDayOfMonth() + "/" + ld.getMonth() + "/" + ld.getYear();  
+                        String dia = ld.getDayOfMonth() + "/" + ld.getMonth() + "/" + ld.getYear();
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setTitle("Info");
+                                                try {
+                        alert.setContentText("Se encontro la concentracion del dia: " + dia + " Con informacion: "+a.buscarSuenio(dia));                        
+                    } catch (NullPointerException e) {
                         
-			System.out.println(a.buscarSuenio(dia));
+                            Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                            alert.setHeaderText(null);
+                            alert.setTitle("Error");
+                            alert.setContentText("Error en la aplicacion, No se encuentra ningun dato ");
+                            alert.showAndWait();
+                    }
+                        alert.showAndWait();
 		}
 	}
 
@@ -475,8 +493,101 @@ public class ControllerBienestar implements Initializable {
 		} else {
 
 			String dia = ld.getDayOfMonth() + "/" + ld.getMonth() + "/" + ld.getYear();
-			System.out.println(a.buscarConcentracion(dia));
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setTitle("Info");
+                        try {
+                        alert.setContentText("Se encontro la concentracion del dia: " + dia + " Con informacion: "+a.buscarConcentracion(dia));                        
+                    } catch (NullPointerException e) {
+                        
+                            Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                            alert.setHeaderText(null);
+                            alert.setTitle("Error");
+                            alert.setContentText("Error en la aplicacion, No se encuentra ningun dato ");
+                            alert.showAndWait();
+                    }
+                        alert.showAndWait();
+
 		}
 	}
+        
+            public void addEjercise(ActionEvent event) {
+
+		if (horas.getText().equalsIgnoreCase("") || horas.getText().equalsIgnoreCase(" ")
+				|| horas.getText().equalsIgnoreCase(null) && minutos.getText().equalsIgnoreCase("")
+				|| minutos.getText().equalsIgnoreCase(" ")
+				|| minutos.getText().equalsIgnoreCase(null) && motivo.getText().equalsIgnoreCase("")
+				|| motivo.getText().equalsIgnoreCase(" ") || motivo.getText().equalsIgnoreCase(null)
+                                || motivo1.getText().equalsIgnoreCase(" ") || motivo1.getText().equalsIgnoreCase(null)) {
+
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setHeaderText(null);
+			alert.setTitle("Info");
+			alert.setContentText("No se pueden dejar vacios los campos");
+			alert.showAndWait();
+		} else {
+
+
+                    LocalDate ld = dp.getValue();
+			String dia = ld.getDayOfMonth() + "/" + ld.getMonth() + "/" + ld.getYear();
+			int horaConcentracion = Integer.parseInt(horas.getText());
+			int minutoConcentracion = Integer.parseInt(minutos.getText());
+			double rate = sl.getValue();
+			int day = ld.getDayOfMonth();
+			int month = ld.getMonthValue();
+			int year = ld.getYear();
+                        Ejercicio e = new Ejercicio(motivo1.getText(), motivo.getText(), favorite.isSelected(), rate, day, month, year, horaConcentracion, minutoConcentracion);
+			try {
+				a.agregarEjercicio(e);
+				System.out.println(e + " " + a.getPersonal().getRaizE());
+
+			} catch (EqualsException ex) {
+
+				Alert alert = new Alert(Alert.AlertType.ERROR);
+				alert.setHeaderText(null);
+				alert.setTitle("Error");
+				alert.setContentText("Error en la aplicacion: " + ex.getMessage());
+				alert.showAndWait();
+			}
+
+		}
+
+	}
+            
+            
+        	public void searchEjercicio(ActionEvent event) {
+
+		LocalDate ld = diaBuscar.getValue();
+                 
+
+		if (diaBuscar.getValue() == null) {
+
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setHeaderText(null);
+			alert.setTitle("Info");
+			alert.setContentText("No se puede dejar el selector de fecha vacio");
+			alert.showAndWait();
+		} else {
+
+			String dia = ld.getDayOfMonth() + "/" + ld.getMonthValue()+ "/" + ld.getYear();
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setTitle("Info");
+                        try {
+                        alert.setContentText("Se encontro la concentracion del dia: " + dia + " Con informacion: "+a.buscarEjercicio(dia));                        
+                    } catch (NullPointerException e) {
+                        
+                            Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                            alert.setHeaderText(null);
+                            alert.setTitle("Error");
+                            alert.setContentText("Error en la aplicacion, No se encuentra ningun dato ");
+                            alert.showAndWait();
+                    }
+                        alert.showAndWait();
+
+		}
+	}
+            
+        
 
 }

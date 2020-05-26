@@ -17,14 +17,16 @@ public class WaterFill extends Thread{
     private Image fondo;
     private Image vaso;
     private Image fill;
+    private int num;
 
-    public WaterFill(Canvas canvas, GraphicsContext gc, Image fondo, Image vaso, Image fill) {
+    public WaterFill(Canvas canvas, GraphicsContext gc, Image fondo, Image vaso, Image fill, int num) {
         this.canvas = canvas;
         this.gc = gc;
         this.root = root;
         this.fondo = fondo;
         this.vaso = vaso;
         this.fill = fill;
+        this.num=num;
     }
 
     @Override
@@ -43,7 +45,7 @@ public class WaterFill extends Thread{
 //                gc.drawImage(fondo, 68, 179, 100, 100);                
                 gc.drawImage(fill, 135, 200, 58, x);
                 gc.drawImage(vaso, 83, 30, 170, 180);
-                Thread.sleep(20);
+                Thread.sleep(num*10);
                 if(x>-1)dir=-1;
                 if(x<-118)dir=+1;
                 if(x==-118)parar = true;
