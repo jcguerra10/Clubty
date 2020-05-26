@@ -80,7 +80,7 @@ public class Personal implements Serializable {
         }
     }
     
-    public Suenio buscarSuenio(String dia) {
+    public Suenio buscarSuenio(String dia) {        
         if (raizS.getNoDia().equalsIgnoreCase(dia)) {
                 return raizS;
         } else {

@@ -153,6 +153,7 @@ public class ControllerBienestar implements Initializable {
 			Suenio s = new Suenio(rate, horaSuenio, minutoSuenio, dia);
 			try {
 				a.agregarSuenio(s);
+                                System.out.println(s + " " + a.getPersonal().getRaizS() );
 			} catch (EqualsException ex) {
 
 				Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -162,24 +163,6 @@ public class ControllerBienestar implements Initializable {
 				alert.showAndWait();
 			}
 
-		}
-	}
-
-	public void searchSuenio(ActionEvent event) {
-
-		LocalDate ld = diaBuscar.getValue();
-
-		if (diaBuscar.getValue() == null) {
-
-			Alert alert = new Alert(Alert.AlertType.WARNING);
-			alert.setHeaderText(null);
-			alert.setTitle("Info");
-			alert.setContentText("No se puede dejar el selector de fecha vacio");
-			alert.showAndWait();
-		} else {
-
-			String dia = diaBuscar.getEditor().getText();					
-			System.out.println(a.buscarSuenio(dia));
 		}
 	}
 
@@ -324,7 +307,7 @@ public class ControllerBienestar implements Initializable {
 			int month = ld.getMonthValue();
 			int year = ld.getYear();
 			String motive = motivo.getText();
-			Concentracion c = new Concentracion(motive, dia, 100, day, month, year, horaConcentracion,
+			Concentracion c = new Concentracion(motive, dia, sl.getValue(), day, month, year, horaConcentracion,
 					minutoConcentracion);
 			try {
 				a.agregarConcentracion(c);
@@ -411,7 +394,7 @@ public class ControllerBienestar implements Initializable {
 
 						LocalDate ld = LocalDate.now();
 						String dia = ld.getDayOfMonth() + "/" + ld.getMonth() + "/" + ld.getYear();
-						Concentracion c = new Concentracion(motivo1.getText(), dia, 100, ld.getDayOfMonth(),
+						Concentracion c = new Concentracion(motivo1.getText(), dia, sl1.getValue(), ld.getDayOfMonth(),
 								ld.getMonthValue(), ld.getYear(), tt.getR().getHour(), tt.getR().getMinute());
 
 						try {
@@ -439,7 +422,7 @@ public class ControllerBienestar implements Initializable {
 
 				LocalDate ld = LocalDate.now();
 				String dia = ld.getDayOfMonth() + "/" + ld.getMonth() + "/" + ld.getYear();
-				Concentracion c = new Concentracion(motivo1.getText(), dia, 100, ld.getDayOfMonth(), ld.getMonthValue(),
+				Concentracion c = new Concentracion(motivo1.getText(), dia, sl1.getValue(), ld.getDayOfMonth(), ld.getMonthValue(),
 						ld.getYear(), tt.getR().getHour(), tt.getR().getMinute());
 
 				try {
@@ -456,6 +439,26 @@ public class ControllerBienestar implements Initializable {
 			tt.setFin(true);
 		});
 
+	}
+        
+        
+        public void searchSuenio(ActionEvent event) {
+
+		LocalDate ld = diaBuscar.getValue();
+
+		if (diaBuscar.getValue() == null) {
+
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setHeaderText(null);
+			alert.setTitle("Info");
+			alert.setContentText("No se puede dejar el selector de fecha vacio");
+			alert.showAndWait();
+		} else {
+
+			String dia = ld.getDayOfMonth() + "/" + ld.getMonth() + "/" + ld.getYear();  
+                        
+			System.out.println(a.buscarSuenio(dia));
+		}
 	}
 
 	public void searchConcentracion(ActionEvent event) {

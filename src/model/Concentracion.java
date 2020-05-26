@@ -16,14 +16,13 @@ public class Concentracion extends Salud implements Comparable<Concentracion>, S
 	private Concentracion izquierda;
 	private Concentracion derecha;
 
-	public Concentracion(String motivo, String fecha, double caloriasQuemadas, int dia, int month, int year, int horas,
-			int minutos) {
-		super(caloriasQuemadas, dia, month, year, horas, minutos);
-		this.motivo = motivo;
-		this.fecha = fecha;
-		this.izquierda = null;
-		this.derecha = null;
-	}
+    public Concentracion(String motivo, String fecha, double rate, int dia, int month, int year, int horas, int minutos) {
+        super(rate, dia, month, year, horas, minutos);
+        this.motivo = motivo;
+        this.fecha = fecha;
+        this.izquierda = null   ;
+        this.derecha = null;
+    }
 
 	public String getMotivo() {
 		return motivo;
@@ -75,19 +74,24 @@ public class Concentracion extends Salud implements Comparable<Concentracion>, S
 		return total;
 	}
 
-	public void insertar(Concentracion nuevo) throws EqualsException {
-		if (compareTo(nuevo) > 0) {
+    public void insertar(Concentracion nuevo) throws EqualsException{
 
-			if (izquierda == null) {
 
-				izquierda = nuevo;
-			} else {
+        if (compareTo(nuevo) > 0) {
 
-				izquierda.insertar(nuevo);
-			}
-		} else if (compareTo(nuevo) < 0) {
+            if (izquierda == null) {
 
-			if (derecha == null) {
+                izquierda = nuevo;
+            } else {
+
+                izquierda.insertar(nuevo);
+            }
+        } else if(compareTo(nuevo) < 0){
+
+            if (derecha == null) {
+
+                derecha = nuevo;
+            } else {
 
                 derecha.insertar(nuevo);
             }

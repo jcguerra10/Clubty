@@ -77,7 +77,7 @@ public class Suenio implements Comparable<Suenio>, Serializable{
 
     @Override
     public int compareTo(Suenio arg0) {
-        return this.getNoDia().compareToIgnoreCase(arg0.getNoDia());
+            return this.getNoDia().compareToIgnoreCase(arg0.getNoDia());
     }
     
     public void insertar(Suenio nuevo) throws EqualsException{

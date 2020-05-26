@@ -9,11 +9,11 @@ import java.io.Serializable;
  */
 public class Salud implements Serializable {
     
-    private double caloriasQuemadas;
+    private double rate;
     private int dia, month, year, horas, minutos;
 
-    public Salud(double caloriasQuemadas, int dia, int month, int year, int horas, int minutos) {
-        this.caloriasQuemadas = caloriasQuemadas;
+    public Salud(double rate, int dia, int month, int year, int horas, int minutos) {
+        this.rate = rate;
         this.dia = dia;
         this.month = month;
         this.year = year;
@@ -22,11 +22,11 @@ public class Salud implements Serializable {
     }
 
     public double getCaloriasQuemadas() {
-        return caloriasQuemadas;
+        return rate;
     }
 
-    public void setCaloriasQuemadas(double caloriasQuemadas) {
-        this.caloriasQuemadas = caloriasQuemadas;
+    public void setCaloriasQuemadas(double rate) {
+        this.rate = rate;
     }
 
     public int getDia() {

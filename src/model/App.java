@@ -101,7 +101,7 @@ public class App implements Serializable {
 	}
 
 	public Suenio buscarSuenio(String day) {
-
+                                
 		return personal.buscarSuenio(day);
 	}
 

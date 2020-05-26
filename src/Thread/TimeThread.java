@@ -20,7 +20,7 @@ public class TimeThread implements  Runnable{
 
     public TimeThread(TextField tf) {
         
-        r = new Clock(0, 0, 0, 0);
+        r = new Clock(1, 0, 0, 0);
         
         stop = false;
         fin = false;
