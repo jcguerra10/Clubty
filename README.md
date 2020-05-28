@@ -45,3 +45,9 @@ Clubty is an application where you can routinely monitor our health, where we ca
 ![USUARIO](https://user-images.githubusercontent.com/47890788/83079301-26a6b780-a041-11ea-9eba-a09860d3c890.PNG)
 
 ![CAMBIO USUARIO](https://user-images.githubusercontent.com/47890788/83079312-2dcdc580-a041-11ea-8012-29931afdfb8a.PNG)
+
+##Videos
+Parte 1
+https://youtu.be/B4hxfQ1cN-g
+Parte 2
+https://www.youtube.com/watch?v=7MuGQiD3r84
